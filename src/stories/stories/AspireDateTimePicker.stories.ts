@@ -1,19 +1,24 @@
 //AspireDateTimePicker.stories.js
 //Date/Time picker component story
+import type { Meta, StoryObj } from "@storybook/svelte";
 
 import AspireDateTimePicker from "./AspireDateTimePicker.svelte";
 
 //Creates documentation for storybook. run "npm run storybook" to see stories
-export default {
+const meta = {
   title: "Date Time Picker",
   component: AspireDateTimePicker,
   tags: ["autodocs"],
-};
+} satisfies Meta<AspireDateTimePicker>;
 
-export const Default = {
+export default meta;
+type Story = StoryObj<AspireDateTimePicker>;
+
+//Date/Time Picker variants and args needed to display them
+export const Default: Story = {
   args: {
     id: "selectDateTime",
     label: "Select Date and Time",
-    dateTimeValue: "",
+    dateValue: "",
   },
 };

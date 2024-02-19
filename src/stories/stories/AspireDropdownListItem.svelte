@@ -1,7 +1,7 @@
 <script>
   //AspireDropdownListItem.svelte
   //Third layer for dropdown component. Has slot for menu items
-  export let label="";
+  export let label = "";
   export let size = "large";
   export let backgroundColor = undefined;
   /**

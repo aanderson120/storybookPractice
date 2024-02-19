@@ -1,7 +1,7 @@
 <script>
   //AspireDropdown.svelte
   //Top level for dropdown component. Has slots for icon and DropdownList
-  export let label="";
+  export let label = "";
   /**
    * @type {string} What background color to use
    */

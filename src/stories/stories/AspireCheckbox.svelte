@@ -1,8 +1,8 @@
 <script>
   //AspireCheckbox.svelte
   //Reusable checkbox component
-  export let id = undefined;
-  export let label = undefined;
+  export let id = "";
+  export let label = "";
   export let check = false;
   export let required = false;
 
@@ -18,7 +18,9 @@
     bind:checked={check}
   />
   <label class="form-check-label" for={id}> {label} </label>
-  <span class={["text-[#D42142]", require].join(" ")} data-tooltip={"This field is required"}
+  <span
+    class={["text-[#D42142]", require].join(" ")}
+    data-tooltip={"This field is required"}
     >*
   </span>
 </div>
@@ -75,7 +77,7 @@
     left: 50%;
   }
 
-  [data-tooltip]:before  {
+  [data-tooltip]:before {
     margin-left: -6px;
     margin-bottom: -12px;
     border-top-color: #000;
@@ -93,5 +95,4 @@
   [data-tooltip]:focus:after {
     transform: translateY(-12px);
   }
-
 </style>

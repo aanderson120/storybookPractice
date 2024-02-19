@@ -1,28 +1,31 @@
 <script>
   // A generic text input area, with default row count of 3, not required.
   // The result is bound to "value"
-  export let value;
+  export let value = "";
   //
-  export let label;
+  export let label = "";
   //  title is the text that appears above the text area.
   export let title = "";
   // set required to "required" if required :)  Default is not required.
-  export let required = "";
+  export let required = false;
   // Text size
   export let ourStyle = "font-light";
   // Text for mouse-over
   export let hoverText = "";
   export let onChangeFunction;
-  // Add an asterisk in front of required radio buttons.
-  let theasterisk = "";
-  if (required == "required") {
-    theasterisk = "*";
-  }
+
+  $: require = required ? "" : "hidden";
 </script>
 
 <div class={ourStyle}>
   <!-- svelte-ignore a11y-missing-attribute -->
-  <a><span class="text-[#ff0000]">{theasterisk} </span>{title}</a>
+  <a
+    ><span
+      class={["text-[#D42142]", require].join(" ")}
+      data-tooltip={"This field is required"}
+      >*
+    </span>{title}</a
+  >
   <label for={label} />
   <input
     {required}

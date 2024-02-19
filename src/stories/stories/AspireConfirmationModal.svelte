@@ -4,11 +4,11 @@
   // If you have more than one of these on a page, the id value will distinguish.
   import { listen } from "svelte/internal";
   // submitHandler function must be set, and will be called when the accept button is clicked.
-  export let submitHandler;
+  export let submitHandler = () => {};
   // Optional function to be run when modal is closed.
-  export let cancelFunction;
-  export let confirmationMessage;
-  export let successMessage;
+  export let cancelFunction = () => {};
+  export let confirmationMessage = "";
+  export let successMessage = "";
   export let loading = false;
   export let errors = {};
   // Clear function is called on success. Not required.

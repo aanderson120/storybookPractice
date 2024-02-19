@@ -1,7 +1,7 @@
 <script>
   //AspireRadioSelect.svelte
   //Reusable radio select component
-  export let isSelected = false;
+  export let isSelected = false || null;
   export let question = "";
   export let label = "";
   export let additionalInfo = "";
@@ -14,8 +14,8 @@
   export let placeholder2 = "";
   export let hidden1 = "";
   export let hidden2 = "";
-  export let emsCalled = false;
-  export let transportedEMS = false;
+  export let emsCalled = false || null;
+  export let transportedEMS = false || null;
   export let transportedEMSNotes = "";
   export let required = false;
   export let selectedOptions = null;
@@ -200,28 +200,27 @@
 {#if isSelected && infoWithDate}
   <div class="ml-2">
     <div class="form-row mb-2">
-      <div class="col">
+      <div class="col flex flex-row">
         <span class={["text-[#D42142] relative right-1", errorIcon].join(" ")}
           >*
         </span>
-        <div class="w-full flex-wrap">
-          <input
-            {required}
-            type="text"
-            class="form-control input-sm mr-10"
-            size="20"
-            {placeholder}
-            bind:value={additionalInfo}
-          />
-          {#if error}
-            <p class="text-[#D42142]">Please enter a valid value</p>
-          {/if}
-        </div>
-        <span class="input-group-btn width:0px p-0" />
         <input
           {required}
+          type="text"
+          class="form-control input-sm mr-10"
+          size="20"
+          {placeholder}
+          bind:value={additionalInfo}
+        />
+        {#if error}
+          <p class="text-[#D42142]">Please enter a valid value</p>
+        {/if}
+        <span class="input-group-btn input-wrapper" style="padding: 0px;" />
+        <input
+          {required}
+          style="flex-direction: row;"
           type="date"
-          class="form-control ml-10 flex-row"
+          class="form-control ml-10"
           size="20"
           bind:value={infoDate}
         />
@@ -231,7 +230,7 @@
 {/if}
 
 <style>
-  .form-row{
+  .form-row {
     display: flex;
     flex-wrap: wrap;
     margin-right: -5px;
@@ -247,5 +246,17 @@
   .form-row .col {
     padding-right: 5px;
     padding-left: 5px;
+  }
+  .form-control {
+    border-color: #3c4144;
+    width: 100%;
+    height: calc(1.5em + 0.75rem + 2px);
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+  .input-group {
+    position: relative;
+    flex-wrap: wrap;
   }
 </style>

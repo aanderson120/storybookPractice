@@ -1,16 +1,26 @@
 <script>
   //AspireEventSelect.svelte
   //Event select component
-  
+
   import moment from "moment";
   import { createEventDispatcher } from "svelte";
   import AspireHeader from "./AspireHeader.svelte";
 
   const dispatch = createEventDispatcher();
-  
-  export let atceventopenevents = undefined;
-  export let selected = false;
-  export let label = undefined;
+
+  export let atceventopenevents = [
+    {
+      EventSK: "",
+      ResidentSK: "",
+      ResidentFirstName: "",
+      ResidentLastName: "",
+      ResidentDOB: "",
+      DateOfFall: "",
+      CampusName: "",
+    },
+  ];
+  export let selected = "";
+  export let label = "";
   export let eventType = "";
   export let loading = false;
 </script>

@@ -2,9 +2,9 @@
   //AspireDateTimePicker.svelte
   //A date-time picker that can be used in forms
 
-  export let dateValue;
-  export let id;
-  export let label;
+  export let dateValue = "";
+  export let id = "";
+  export let label = "";
 </script>
 
 <div class="col">

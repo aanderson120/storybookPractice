@@ -33,9 +33,9 @@
         <a class="text-right">
           <!-- Show the icont that is the opposite of the current status of expanded -->
           {#if expanded}
-            +
+            <i class="fa-solid fa-chevron-down" />
           {:else}
-            -
+            <i class="fa-solid fa-chevron-up" />
           {/if}
         </a></button
       >
