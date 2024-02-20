@@ -2,7 +2,7 @@
   //AspireTooltip.svelte
   //Reusable tooltip component
 
-  export let visability = "";
+  export let visability = false;
   export let tooltipText = "This is a warning";
   export let position = "top" || "right" || "bottom" || "left";
   export let textColor = "";
@@ -11,7 +11,7 @@
 
 <div class={["mx-1", visability].join(" ")}>
   <span class={[textColor, position].join(" ")} data-tooltip={tooltipText}
-    ><slot />
+    >!
   </span>
 </div>
 

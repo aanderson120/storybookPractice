@@ -1,51 +1,48 @@
-//AspireTooltip.stories.js
+//AspireTooltip.stories.ts
 //Tooltip variants based on positions
+import type { Meta, StoryObj } from "@storybook/svelte";
+
 import AspireTooltip from "./AspireTooltip.svelte";
 
 //Creates documentation for storybook. run "npm run storybook" to see stories
-export default {
+const meta = {
   title: "Tooltip",
   component: AspireTooltip,
   tags: ["autodocs"],
-};
+} satisfies Meta<AspireTooltip>;
+
+export default meta;
+type Story = StoryObj<AspireTooltip>;
 
 //Tooltip variants and args needed to display them
-export const Default = {
+export const Default: Story = {
   args: {
-    label: "Default Tooltip",
     visability: true,
     tooltipText: "This is a warning",
     position: "top",
-    symbol: "!",
   },
 };
 
-export const Right = {
+export const Right: Story = {
   args: {
-    label: "Right Tooltip",
     visability: true,
     tooltipText: "This is a warning",
     position: "right",
-    symbol: "!",
   },
 };
 
-export const Bottom = {
+export const Bottom: Story = {
   args: {
-    label: "Bottom Tooltip",
     visability: true,
     tooltipText: "This is a warning",
     position: "bottom",
-    symbol: "!",
   },
 };
 
-export const Left = {
+export const Left: Story = {
   args: {
-    label: "Left Tooltip",
-    warning: true,
+    visability: true,
     tooltipText: "This is a warning",
     position: "left",
-    symbol: "!",
   },
 };

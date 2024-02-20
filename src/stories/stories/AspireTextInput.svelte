@@ -4,7 +4,7 @@
 
   import AspireTooltip from "./AspireTooltip.svelte";
 
-  export let text = "";
+  export let label = "";
   export let placeholder = "";
   export let id = "";
   export let withTooltip = false;
@@ -34,7 +34,7 @@
     {id}
     {placeholder}
     class={["form-control max-w-[100%]", warnBorder, errorBorder].join(" ")}
-    bind:value={text}
+    bind:value={label}
   />
   {#if withTooltip}
     <div class="buttonTooltip">

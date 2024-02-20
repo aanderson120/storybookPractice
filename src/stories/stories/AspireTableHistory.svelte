@@ -2,7 +2,12 @@
   import moment from "moment";
 
   export let reading = "";
-  export let vitalsHistory;
+  export let vitalsHistory = [
+    {
+      Created: "",
+      Value: "",
+    },
+  ];
   export let historyType =
     "bloodSugars" || "bloodPressures" || "falls" || "weights";
   //   export let whviewresidentfalls;
