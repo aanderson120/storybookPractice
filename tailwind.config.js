@@ -1,6 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ['./index.html', './src/**/*.{svelte,js,ts}'],
+  content: ["./index.html", "./src/**/*.{svelte,js,ts}"],
   theme: {
     screens: {
       sm: "800px",
@@ -16,7 +16,7 @@ module.exports = {
       6: "6px",
       8: "8px",
     },
-      extend: {}
+    extend: {},
   },
   plugins: [require("daisyui")],
   daisyui: {
