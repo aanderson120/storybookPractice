@@ -18,9 +18,8 @@ type Story = StoryObj<AspireRadioSelect>;
 //Simple Radio Select
 export const Simple: Story = {
   args: {
-    label: "Simple Select",
     question: "Simple Select",
-    isSelected: null,
+    value: null,
   },
 };
 
@@ -28,9 +27,8 @@ export const Simple: Story = {
 export const Required: Story = {
   args: {
     required: true,
-    label: "Required Select",
     question: "Required Select",
-    isSelected: null,
+    value: null,
   },
 };
 
@@ -38,9 +36,8 @@ export const Required: Story = {
 export const Email: Story = {
   args: {
     email: true,
-    label: "Select with Email",
     question: "Select with Email",
-    isSelected: null,
+    value: null,
     additionalInfo: "",
     placeholder: "Enter Email",
   },
@@ -50,9 +47,8 @@ export const Email: Story = {
 export const withInfo: Story = {
   args: {
     withInfo: true,
-    label: "With Info Select",
     question: "Select with additional info",
-    isSelected: null,
+    value: null,
     additionalInfo: "",
     placeholder: "(Please enter more information)",
   },
@@ -63,9 +59,8 @@ export const withInfoValidation: Story = {
   args: {
     required: true,
     withInfo: true,
-    label: "With Info and Validation Select",
     question: "Radio Select with additional info and validation",
-    isSelected: null,
+    value: null,
     additionalInfo: "",
     placeholder: "(Please enter more information)",
     error: true,
@@ -76,9 +71,8 @@ export const withInfoValidation: Story = {
 export const withInfoNegative: Story = {
   args: {
     infoNegative: true,
-    label: "With Info on 'No' Select",
     question: "Select with additional info on 'No'",
-    isSelected: null,
+    value: null,
     additionalInfo: "",
     placeholder: "(Please enter more information)",
   },
@@ -88,9 +82,8 @@ export const withInfoNegative: Story = {
 export const HiddenField: Story = {
   args: {
     hiddenFields: true,
-    label: "Select with hidden fields",
     question: "Select with hidden fields",
-    isSelected: null,
+    value: null,
     hidden1: "",
     hidden2: "",
     placeholder: "Input 1",
@@ -101,10 +94,9 @@ export const HiddenField: Story = {
 //Radio Select with inputs for ems involvement on 'Yes'
 export const emsInvolved: Story = {
   args: {
-    hiddenFields: true,
-    label: "emsInvolved?",
     question: "EMS was Involved?",
-    isSelected: null,
+    label: "emsInvolved",
+    value: null,
     emsCalled: null,
     transportedEMS: null,
     transportedEMSNotes: "",
@@ -115,9 +107,8 @@ export const emsInvolved: Story = {
 export const infoWithDate: Story = {
   args: {
     infoWithDate: true,
-    label: "infoWithDate",
     question: "Select with date and additional info",
-    isSelected: null,
+    value: null,
     additionalInfo: "",
     placeholder: "(Please enter more information)",
   },

@@ -1,7 +1,7 @@
 <script>
   //AspireCol.svelte
   //Column component to be used with a grid system
-  
+
   // className = css class to tack onto the div for the column
   // size= size to use on the column.
   // margin1 - margin in pixels between columns. Default is 3.
@@ -64,5 +64,8 @@
   }
   .\0000312 {
     flex: 0 0 100%;
+  }
+  .d-flex {
+    display: flex !important;
   }
 </style>

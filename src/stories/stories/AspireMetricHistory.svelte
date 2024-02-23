@@ -5,6 +5,7 @@
   // The resident object should be activated for the purpose you intend, to ensure
   // the metrics you want are loaded.
   import moment from "moment";
+
   export let residentObj = {
     BradenScore: "",
     CampusId: "",
@@ -35,7 +36,23 @@
     SLUMsScore: "",
     UnitNumber: "",
   };
-  export let metricType="";
+  export let metricType =
+    "Blood Pressure" ||
+    "Temperature" ||
+    "Pulse" ||
+    "Respiration" ||
+    "O2 Saturation" ||
+    "Blood Sugar" ||
+    "A1C" ||
+    "MAHC10 Score" ||
+    "SLUMS Score" ||
+    "Oxygen Saturation" ||
+    "Lung Sounds" ||
+    "Fall" ||
+    "Fall Mitigation" ||
+    "General Decline" ||
+    "CHF" ||
+    "Other";
   export let count = 10;
 </script>
 

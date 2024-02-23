@@ -17,8 +17,10 @@ type Story = StoryObj<AspireEmailInput>;
 //Email Input variants and args needed to display them
 export const Default: Story = {
   args: {
+    required: true,
     title: "Enter Email",
-    value: "",
+    additionalInfo: "",
     hoverText: "The sender Email address.",
+    placeholder: "Enter Email",
   },
 };

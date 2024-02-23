@@ -1,7 +1,7 @@
 <script>
   //AspireVitalSigns.svelte
   //Vital signs component based on event type
-  import AspireTextInput from "./AspireTextInput.svelte";
+  import VitalInput from "./VitalInput.svelte";
   import AspireHeader from "./AspireHeader.svelte";
   import AspireDatePicker from "./AspireDatePicker.svelte";
 
@@ -79,8 +79,8 @@
 
 <AspireHeader primary label="Evaluation Vital Signs" />
 <div class="form-row my-1">
-  <AspireTextInput
-    bind:text={eventTemp}
+  <VitalInput
+    bind:label={eventTemp}
     placeholder={"Temperature"}
     id={"eventTemp"}
     withTooltip={true}
@@ -93,8 +93,8 @@
     errorMessage={"Please enter a valid temperature"}
     warningMessage={"Please double check temperature and contact primary care provider if needed."}
   />
-  <AspireTextInput
-    bind:text={eventPulse}
+  <VitalInput
+    bind:label={eventPulse}
     placeholder={"Pulse"}
     id={"eventPulse"}
     withTooltip={true}
@@ -107,8 +107,8 @@
     errorMessage={"Please enter a valid pulse rate"}
     warningMessage={"Please double check pulse and contact primary care provider if needed"}
   />
-  <AspireTextInput
-    bind:text={eventRespiration}
+  <VitalInput
+    bind:label={eventRespiration}
     placeholder={"Respiration"}
     id={"eventRespiration"}
     withTooltip={true}
@@ -121,8 +121,8 @@
     errorMessage={"Please enter a valid respiration rate"}
     warningMessage={"Please double check respiration and contact primary care provider if needed"}
   />
-  <AspireTextInput
-    bind:text={eventBP}
+  <VitalInput
+    bind:label={eventBP}
     placeholder={"Blood Pressure"}
     id={"eventBP"}
     withTooltip={true}
@@ -134,8 +134,8 @@
 </div>
 {#if eventType == "glucose"}
   <div class="form-row">
-    <AspireTextInput
-      bind:text={O2Sat}
+    <VitalInput
+      bind:label={O2Sat}
       placeholder={"Oxygen Saturation (Percent)"}
       id={"o2Sat"}
       withTooltip={true}
@@ -148,8 +148,8 @@
       errorMessage={"Please enter a valid oxygen saturation"}
       warningMessage={"Please double check oxygen saturation and contact primary care provider if needed"}
     />
-    <AspireTextInput
-      bind:text={bloodGlucose}
+    <VitalInput
+      bind:label={bloodGlucose}
       placeholder={"Blood Glucose"}
       id={"bloodGlucose"}
       withTooltip={true}
@@ -162,8 +162,8 @@
       errorMessage={"Please enter a valid blood glucose"}
       warningMessage={"Please double check blood glucose and contact primary care provider if needed"}
     />
-    <AspireTextInput
-      bind:text={a1C}
+    <VitalInput
+      bind:label={a1C}
       placeholder={"Most Recent A1C (Percent)"}
       id={"A1C"}
       withTooltip={true}
@@ -183,8 +183,8 @@
 {/if}
 {#if eventType == "falls"}
   <div class="form-row">
-    <AspireTextInput
-      bind:text={MAHC10Score}
+    <VitalInput
+      bind:label={MAHC10Score}
       placeholder={"MAHC 10 Score"}
       id={"MAHC10Score"}
       withTooltip={true}
@@ -197,8 +197,8 @@
       id={"MAHC10ScoreDate"}
       label={"MAHC10 Score Date"}
     />
-    <AspireTextInput
-      bind:text={SLUMSScore}
+    <VitalInput
+      bind:label={SLUMSScore}
       placeholder={"SLUMS/MMSE Score"}
       id={"SLUMSScore"}
       withTooltip={true}
@@ -215,14 +215,14 @@
 {/if}
 {#if eventType == "generalDecline" || eventType == "chf"}
   <div class="form-row">
-    <AspireTextInput
-      bind:text={eventLungSounds}
+    <VitalInput
+      bind:label={eventLungSounds}
       id={"lungSounds"}
       placeholder={"Lung Sounds"}
       withTooltip={true}
     />
-    <AspireTextInput
-      bind:text={eventOxygenSaturation}
+    <VitalInput
+      bind:label={eventOxygenSaturation}
       id={"oxygenSaturation"}
       placeholder={"Oxygen Saturation"}
       withTooltip={true}

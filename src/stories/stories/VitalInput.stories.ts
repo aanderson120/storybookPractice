@@ -1,12 +1,12 @@
 //AspireTextInput.stories.js
 //Text input variants and possible configurations
 
-import AspireTextInput from "./AspireTextInput.svelte";
+import VitalInput from "./VitalInput.svelte";
 
 //Creates documentation for storybook. run "npm run storybook" to see stories
 export default {
-  title: "Event Text Input",
-  component: AspireTextInput,
+  title: "Vital Input",
+  component: VitalInput,
   tags: ["autodocs"],
 };
 

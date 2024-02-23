@@ -17,6 +17,6 @@ type Story = StoryObj<AspireCollapsibleSection>;
 //Collapsible Section variants and args needed to display them
 export const CollapsibleSection: Story = {
   args: {
-    headerText: "Collapsible Section",
+    label: "Collapsible Section",
   },
 };
