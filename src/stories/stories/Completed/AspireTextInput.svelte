@@ -1,5 +1,5 @@
 <script>
-  import AspireTooltip from "./AspireTooltip.svelte";
+  import AspireTooltip from "../AspireTooltip.svelte";
 
   //AspireTextInput.svelte
   //Reusable text input component
@@ -7,13 +7,13 @@
   export let placeholder = "";
   export let value = "";
   //Variables for error handling
-  export let error = false;
   export let required = false;
   export let withTooltip = false;
   export let hasWarning = false;
   export let hasError = false;
   export let warningMessage = "";
   export let errorMessage = "";
+  export let size;
 
   //warnings and errors show up as a border around the input box as well as icon
   $: warnBorder = hasWarning ? "!border-[#B38000] !border-3 !border-solid" : "";
@@ -23,19 +23,19 @@
   $: errorAlert = hasError ? "" : "!hidden";
 </script>
 
-<div class="mb-1">
+<div class="mb-1 ml-2">
   <div class="form-row">
     <div class="col pr-10 d-flex">
       {#if withTooltip}
-        <div class="buttonTooltip self-center">
+        <div class="buttonTooltip self-center !static">
           <AspireTooltip
-            position="right"
+            position="top"
             visability={errorAlert}
             tooltipText={errorMessage}
             textColor="text-[#D42142]">*</AspireTooltip
           >
           <AspireTooltip
-            position="right"
+            position="top"
             visability={warnAlert}
             tooltipText={warningMessage}
             textColor="text-[#B38000]">!</AspireTooltip
@@ -45,7 +45,7 @@
       <input
         {required}
         type="text"
-        size="50"
+        {size}
         {placeholder}
         class={["form-control max-w-[90%]", warnBorder, errorBorder].join(" ")}
         bind:value
@@ -59,14 +59,12 @@
     position: relative;
   }
   .form-control {
+    border-color: #3c4144;
+    width: 100%;
     height: calc(1.5em + 0.75rem + 2px);
+    padding: 0.375rem 0.75rem;
     font-size: 1rem;
-    font-weight: 400;
     line-height: 1.5;
-    background-clip: padding-box;
-    transition:
-      border-color 0.15s ease-in-out,
-      box-shadow 0.15s ease-in-out;
   }
   .col {
     position: relative;

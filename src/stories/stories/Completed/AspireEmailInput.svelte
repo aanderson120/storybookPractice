@@ -15,6 +15,7 @@
   export let placeholder = "";
   export let error = false;
   export let noTitle = false;
+  export let size;
 
   $: require = required ? "" : "hidden";
   $: errorIcon = error ? "" : "hidden";
@@ -47,7 +48,7 @@
           type="email"
           title={hoverText}
           class="form-control max-w-[90%]"
-          size="50"
+          {size}
           id={label}
           {placeholder}
           bind:value={additionalInfo}

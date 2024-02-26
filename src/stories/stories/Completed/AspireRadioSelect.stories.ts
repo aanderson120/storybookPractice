@@ -19,7 +19,6 @@ type Story = StoryObj<AspireRadioSelect>;
 export const Simple: Story = {
   args: {
     question: "Simple Select",
-    value: null,
   },
 };
 
@@ -28,7 +27,6 @@ export const Required: Story = {
   args: {
     required: true,
     question: "Required Select",
-    value: null,
   },
 };
 
@@ -37,7 +35,6 @@ export const Email: Story = {
   args: {
     email: true,
     question: "Select with Email",
-    value: null,
     additionalInfo: "",
     placeholder: "Enter Email",
   },
@@ -48,7 +45,6 @@ export const withInfo: Story = {
   args: {
     withInfo: true,
     question: "Select with additional info",
-    value: null,
     additionalInfo: "",
     placeholder: "(Please enter more information)",
   },
@@ -60,10 +56,10 @@ export const withInfoValidation: Story = {
     required: true,
     withInfo: true,
     question: "Radio Select with additional info and validation",
-    value: null,
     additionalInfo: "",
-    placeholder: "(Please enter more information)",
+    placeholder: "Please enter more information",
     error: true,
+    errorMessage: "There is an error",
   },
 };
 
@@ -72,9 +68,8 @@ export const withInfoNegative: Story = {
   args: {
     infoNegative: true,
     question: "Select with additional info on 'No'",
-    value: null,
     additionalInfo: "",
-    placeholder: "(Please enter more information)",
+    placeholder: "Please enter more information",
   },
 };
 
@@ -83,7 +78,6 @@ export const HiddenField: Story = {
   args: {
     hiddenFields: true,
     question: "Select with hidden fields",
-    value: null,
     hidden1: "",
     hidden2: "",
     placeholder: "Input 1",
@@ -96,7 +90,6 @@ export const emsInvolved: Story = {
   args: {
     question: "EMS was Involved?",
     label: "emsInvolved",
-    value: null,
     emsCalled: null,
     transportedEMS: null,
     transportedEMSNotes: "",
@@ -108,8 +101,17 @@ export const infoWithDate: Story = {
   args: {
     infoWithDate: true,
     question: "Select with date and additional info",
-    value: null,
     additionalInfo: "",
-    placeholder: "(Please enter more information)",
+    placeholder: "Please enter more information",
+  },
+};
+
+//Radio Select with date/time input on 'Yes'
+export const infoWithDateTime: Story = {
+  args: {
+    infoWithDate: true,
+    question: "Select with date/time and additional info",
+    additionalInfo: "",
+    placeholder: "Please enter more information",
   },
 };

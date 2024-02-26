@@ -1,22 +1,26 @@
 <script>
-  //AspireDateTimePicker.svelte
-  //A date-time picker that can be used in forms
+  //AspireDatePicker.svelte
+  //Date picker component
 
-  export let dateValue = "";
-  export let id = "";
-  export let label = "";
+  import moment from "moment";
+
+  export let value = "";
+  export let placeholder = "";
+  export let size;
+
+  let defaultTime = moment().format("mm/dd/yyyy hh:i");
+  if (!value) {
+    value = defaultTime;
+  }
 </script>
 
-<div class="col">
-  <input
-    {id}
-    type="datetime-local"
-    class="form-control"
-    bind:value={dateValue}
-    placeholder={label}
-  />
-  <label for={id}>{label}</label>
-</div>
+<input
+  type="date"
+  {placeholder}
+  bind:value
+  class="form-control mx-5 max-w-[90%] ml-10 flex-row"
+  {size}
+/>
 
 <style>
   .form-control {

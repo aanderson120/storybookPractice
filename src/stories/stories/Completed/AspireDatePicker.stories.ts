@@ -17,8 +17,8 @@ type Story = StoryObj<AspireDatePicker>;
 //Date Picker variants and args needed to display them
 export const Default: Story = {
   args: {
-    id: "selectDate",
-    label: "Select Date",
-    dateValue: "",
+    value: "",
+    placeholder: "Select Date",
+    size: 20,
   },
 };

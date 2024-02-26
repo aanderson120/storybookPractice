@@ -1,8 +1,11 @@
 <script>
+  import AspireDateTimePicker from "./AspireDateTimePicker.svelte";
   //AspireRadioSelect.svelte
   //Reusable radio select component
 
   import AspireEmailInput from "./AspireEmailInput.svelte";
+  import AspireTextInput from "./AspireTextInput.svelte";
+  import AspireDatePicker from "./AspireDatePicker.svelte";
 
   export let question = "";
   export let placeholder = "";
@@ -30,9 +33,14 @@
   //when radio select needs a text input and a date input
   export let infoWithDate = false;
   export let infoDate = "";
+  export let infoWithDateTime = false;
+  export let infoDateTime = "";
   //for error handling specifc to inputs
   export let error = false;
+  export let warning = false;
   export let required = false;
+  export let warningMessage = "";
+  export let errorMessage = "";
 
   // Options "Yes" and "No", with boolean return values of true and false.
   // Options on radio button fields are mutually exclusive.
@@ -94,94 +102,69 @@
         {required}
         {placeholder}
         {additionalInfo}
+        size="50"
         noTitle={true}
       />
     </div>
   </div>
 {/if}
 {#if value && withInfo}
-  <div class="mb-1">
-    <div class="form-row">
-      <div class="col pr-10 d-flex">
-        <span class={["text-[#D42142] relative right-1", errorIcon].join(" ")}
-          >*
-        </span>
-        <input
-          {required}
-          type="text"
-          class="form-control max-w-[90%]"
-          size="50"
-          {placeholder}
-          bind:value={additionalInfo}
-        />
-      </div>
-    </div>
-  </div>
+  <AspireTextInput
+    withTooltip={true}
+    value={additionalInfo}
+    {placeholder}
+    {required}
+    size="50"
+    hasWarning={warning}
+    hasError={error}
+    {warningMessage}
+    {errorMessage}
+  />
 {/if}
 {#if !value && typeof value == "boolean" && infoNegative}
-  <div class="ml-2">
-    <div class="form-row mb-2">
-      <div class="col">
-        <span class={["text-[#D42142] relative right-1", errorIcon].join(" ")}
-          >*
-        </span>
-        <input
-          {required}
-          type="text"
-          class="form-control max-w-[90%]"
-          size="50"
-          {placeholder}
-          bind:value={additionalInfo}
-        />
-      </div>
-    </div>
-  </div>
+  <AspireTextInput
+    withTooltip={true}
+    value={additionalInfo}
+    {placeholder}
+    {required}
+    size="50"
+    hasWarning={warning}
+    hasError={error}
+    {warningMessage}
+    {errorMessage}
+  />
 {/if}
 {#if value && hiddenFields}
-  <div class="ml-2">
-    <div class="form-row mb-2">
-      <div class="col">
-        <span class={["text-[#D42142] relative left-8", errorIcon].join(" ")}
-          >*
-        </span>
-        <input
-          {required}
-          type="text"
-          class="form-control max-w-[90%]"
-          {placeholder}
-          bind:value={hidden1}
-        />
-      </div>
-    </div>
-    <div class="form-row">
-      <div class="col">
-        <span class={["text-[#D42142] relative left-8", errorIcon].join(" ")}
-          >*
-        </span>
-        <input
-          {required}
-          type="text"
-          class="form-control max-w-[90%]"
-          placeholder={placeholder2}
-          bind:value={hidden2}
-        />
-      </div>
-    </div>
-  </div>
+  <AspireTextInput
+    withTooltip={true}
+    value={hidden1}
+    {placeholder}
+    {required}
+    size="50"
+    hasWarning={warning}
+    hasError={error}
+    {warningMessage}
+    {errorMessage}
+  />
+  <AspireTextInput
+    withTooltip={true}
+    value={hidden2}
+    placeholder={placeholder2}
+    {required}
+    size="50"
+    hasWarning={warning}
+    hasError={error}
+    {warningMessage}
+    {errorMessage}
+  />
 {/if}
 {#if label === "emsInvolved" && value}
-  <div class="form-row mb-2">
-    <div class="col">
-      <input
-        {required}
-        style="flex-direction: row"
-        type="datetime-local"
-        class="form-control mx-5 max-w-[90%]"
-        placeholder="Date/time of EMS Call"
-        bind:value={emsCalled}
-      />
-    </div>
-  </div>
+  <AspireDateTimePicker
+    size="50"
+    {required}
+    placeholder="Date/time of EMS Call"
+    bind:value={emsCalled}
+  />
   <div class="form-check ml-10">
     <input
       {required}
@@ -195,18 +178,12 @@
       Resident was transported via EMS?
     </label>
     {#if transportedEMS}
-      <div class="form-row mb-2">
-        <div class="col">
-          <input
-            {required}
-            style="flex-direction: row"
-            type="datetime-local"
-            class="form-control mx-5 max-w-[90%]"
-            placeholder="Date/time of Transport"
-            bind:value={transportedEMSNotes}
-          />
-        </div>
-      </div>
+      <AspireDateTimePicker
+        {required}
+        size="50"
+        placeholder="Date/time of Transport"
+        bind:value={transportedEMSNotes}
+      />
     {/if}
   </div>
 {/if}
@@ -229,14 +206,31 @@
           <p class="text-[#D42142]">Please enter a valid value</p>
         {/if}
         <span class="input-group-btn input-wrapper" style="padding: 0px;" />
+        <AspireDatePicker bind:value={infoDate} size="20" />
+      </div>
+    </div>
+  </div>
+{/if}
+{#if value && infoWithDateTime}
+  <div class="ml-2">
+    <div class="form-row mb-2">
+      <div class="col flex flex-row">
+        <span class={["text-[#D42142] relative right-1", errorIcon].join(" ")}
+          >*
+        </span>
         <input
           {required}
-          style="flex-direction: row;"
-          type="date"
-          class="form-control ml-10"
+          type="text"
+          class="form-control input-sm mr-10"
           size="20"
-          bind:value={infoDate}
+          {placeholder}
+          bind:value={additionalInfo}
         />
+        {#if error}
+          <p class="text-[#D42142]">Please enter a valid value</p>
+        {/if}
+        <span class="input-group-btn input-wrapper" style="padding: 0px;" />
+        <AspireDateTimePicker {required} bind:value={infoDateTime} size="50" />
       </div>
     </div>
   </div>
