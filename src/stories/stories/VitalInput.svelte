@@ -2,7 +2,7 @@
   //AspireTextInput.svelte
   //Reusable text input component
 
-  import AspireTooltip from "./AspireTooltip.svelte";
+  import AspireTooltip from "./Completed/AspireTooltip.svelte";
 
   export let label = "";
   export let placeholder = "";

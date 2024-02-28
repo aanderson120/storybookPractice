@@ -1,5 +1,5 @@
 <script>
-  import AspireTooltip from "../AspireTooltip.svelte";
+  import AspireTooltip from "./AspireTooltip.svelte";
 
   //AspireTextInput.svelte
   //Reusable text input component

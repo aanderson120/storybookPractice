@@ -6,34 +6,20 @@
   export let text = "";
   export let label = "";
   export let placeholder = "";
-  export let title = "";
-  export let additionalInterventions = "";
+  export let id = "";
 </script>
 
-<AspireHeader label={label} primary />
+<AspireHeader {label} primary />
 <div class="form-group">
-  <label for={title} />
+  <label for={id} />
   <textarea
     class="form-control"
-    id={title}
+    {id}
     rows="3"
     bind:value={text}
     {placeholder}
   />
 </div>
-{#if label === "Additional Information" && text}
-  <div class="form-row">
-    <div class="col">
-      <input
-        type="text"
-        class="form-control"
-        placeholder="Additional Interventions"
-        bind:value={additionalInterventions}
-      />
-    </div>
-  </div>
-  <br />
-{/if}
 
 <style>
   .form-group {

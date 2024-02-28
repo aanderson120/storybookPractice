@@ -20,5 +20,7 @@ export const Default: Story = {
     value: "",
     placeholder: "Select Date",
     size: 20,
+    id: "date-picker",
+    label: "Date Picker",
   },
 };

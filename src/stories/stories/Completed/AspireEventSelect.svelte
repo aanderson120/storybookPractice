@@ -70,11 +70,11 @@
       </select>
     {:else if loading}
       <select>
-        <option> Loading Events... </option>
+        <option class="text-center"> Loading Events... </option>
       </select>
     {:else}
       <select>
-        <option> No Events </option>
+        <option class="text-center"> No Events </option>
       </select>
     {/if}
   </div>
@@ -92,7 +92,6 @@
     /* Reset. */
     /* Style */
     width: 100%;
-    max-width: 600px;
     padding: 0.75rem;
     border: 2px solid rgba(0, 0, 0, 0.1);
     border-radius: 0.25em;

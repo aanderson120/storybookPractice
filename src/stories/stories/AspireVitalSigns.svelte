@@ -2,8 +2,8 @@
   //AspireVitalSigns.svelte
   //Vital signs component based on event type
   import VitalInput from "./VitalInput.svelte";
-  import AspireHeader from "./AspireHeader.svelte";
-  import AspireDatePicker from "./AspireDatePicker.svelte";
+  import AspireHeader from "./Completed/AspireHeader.svelte";
+  import AspireDatePicker from "./Completed/AspireDatePicker.svelte";
 
   export let eventTemp = undefined;
   export let eventPulse = undefined;
@@ -87,8 +87,8 @@
     hasWarning={eventTemp === ""
       ? false
       : eventTemp < 94 || eventTemp > 99
-      ? true
-      : false}
+        ? true
+        : false}
     hasError={tempError}
     errorMessage={"Please enter a valid temperature"}
     warningMessage={"Please double check temperature and contact primary care provider if needed."}
@@ -101,8 +101,8 @@
     hasWarning={eventPulse === ""
       ? false
       : eventPulse < 60 || eventPulse > 100
-      ? true
-      : false}
+        ? true
+        : false}
     hasError={pulseError}
     errorMessage={"Please enter a valid pulse rate"}
     warningMessage={"Please double check pulse and contact primary care provider if needed"}
@@ -115,8 +115,8 @@
     hasWarning={eventRespiration === ""
       ? false
       : eventRespiration < 10 || eventRespiration > 30
-      ? true
-      : false}
+        ? true
+        : false}
     hasError={respirationError}
     errorMessage={"Please enter a valid respiration rate"}
     warningMessage={"Please double check respiration and contact primary care provider if needed"}
@@ -142,8 +142,8 @@
       hasWarning={O2Sat === ""
         ? false
         : O2Sat < 95 || O2Sat > 100
-        ? true
-        : false}
+          ? true
+          : false}
       hasError={O2SatError}
       errorMessage={"Please enter a valid oxygen saturation"}
       warningMessage={"Please double check oxygen saturation and contact primary care provider if needed"}
@@ -156,8 +156,8 @@
       hasWarning={bloodGlucose === ""
         ? false
         : bloodGlucose < 90 || bloodGlucose > 150
-        ? true
-        : false}
+          ? true
+          : false}
       hasError={bloodGlucoseError}
       errorMessage={"Please enter a valid blood glucose"}
       warningMessage={"Please double check blood glucose and contact primary care provider if needed"}
@@ -174,9 +174,10 @@
     />
     {#if a1C}
       <AspireDatePicker
-        bind:dateValue={a1CDate}
+        bind:value={a1CDate}
         id={"A1CDate"}
         label={"A1C Date"}
+        size={"20"}
       />
     {/if}
   </div>
@@ -193,9 +194,10 @@
       errorMessage={"Please enter a valid MAHC 10 Score"}
     />
     <AspireDatePicker
-      bind:dateValue={MAHC10ScoreDate}
+      bind:value={MAHC10ScoreDate}
       id={"MAHC10ScoreDate"}
       label={"MAHC10 Score Date"}
+      size={"20"}
     />
     <VitalInput
       bind:label={SLUMSScore}
@@ -207,9 +209,10 @@
       errorMessage={"Please enter a valid SLUMS/MMSE Score"}
     />
     <AspireDatePicker
-      bind:dateValue={SLUMSScoreDate}
+      bind:value={SLUMSScoreDate}
       id={"SLUMSScoreDate"}
       label={"SLUMS/MMSE Score Date"}
+      size={"20"}
     />
   </div>
 {/if}
@@ -229,8 +232,8 @@
       hasWarning={eventOxygenSaturation === ""
         ? false
         : eventOxygenSaturation < 95 || eventOxygenSaturation > 100
-        ? true
-        : false}
+          ? true
+          : false}
       hasError={OxygenSaturationError}
       errorMessage={"Please enter a valid oxygen saturation"}
       warningMessage={"Please double check oxygen saturation and contact primary care provider if needed"}
@@ -240,7 +243,7 @@
 <br />
 
 <style>
-   .form-row{
+  .form-row {
     display: flex;
     flex-wrap: wrap;
     margin-right: -5px;

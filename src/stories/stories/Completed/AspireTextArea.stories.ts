@@ -19,16 +19,7 @@ export const TextArea: Story = {
   args: {
     label: "Text Area",
     text: "",
-    title: "textArea",
+    id: "textArea",
     placeholder: "Enter text here",
-  },
-};
-
-export const Additional: Story = {
-  args: {
-    label: "Additional Information",
-    text: "",
-    title: "additionalInformation",
-    placeholder: "Enter text here to view additional text input",
   },
 };
