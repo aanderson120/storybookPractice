@@ -1,9 +1,10 @@
 <script>
   //AspireCheckbox.svelte
   //Reusable checkbox component
+  export let inputClass = "";
   export let id = "";
   export let label = "";
-  export let check = false;
+  export let isChecked = false;
   export let required = false;
 
   $: require = required ? "" : "hidden";
@@ -11,11 +12,11 @@
 
 <div class="ml-5">
   <input
-    class="form-check-input"
+    class={["form-check-input", inputClass].join(" ")}
     type="checkbox"
     name={id}
     {id}
-    bind:checked={check}
+    bind:checked={isChecked}
   />
   <label class="form-check-label" for={id}> {label} </label>
   <span

@@ -62,6 +62,23 @@
 </div>
 
 <style>
+  .form-row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: -5px;
+    margin-left: -5px;
+  }
+  .col {
+    position: relative;
+    flex-basis: 0;
+    flex-grow: 1;
+    max-width: 100%;
+    width: 100%;
+  }
+  .form-row .col {
+    padding-right: 5px;
+    padding-left: 5px;
+  }
   .form-control {
     border-color: #3c4144;
     width: 100%;

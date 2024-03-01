@@ -14,6 +14,7 @@
   export let warningMessage = "";
   export let errorMessage = "";
   export let size;
+  export let id = "";
 
   //warnings and errors show up as a border around the input box as well as icon
   $: warnBorder = hasWarning ? "!border-[#B38000] !border-3 !border-solid" : "";
@@ -23,8 +24,8 @@
   $: errorAlert = hasError ? "" : "!hidden";
 </script>
 
-<div class="mb-1 ml-2">
-  <div class="form-row">
+<div class="ml-2">
+  <div class="form-row mb-2">
     <div class="col pr-10 d-flex">
       {#if withTooltip}
         <div class="buttonTooltip self-center !static">
@@ -45,6 +46,7 @@
       <input
         {required}
         type="text"
+        {id}
         {size}
         {placeholder}
         class={["form-control max-w-[90%]", warnBorder, errorBorder].join(" ")}
@@ -66,12 +68,22 @@
     font-size: 1rem;
     line-height: 1.5;
   }
+  .form-row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: -5px;
+    margin-left: -5px;
+  }
   .col {
     position: relative;
     flex-basis: 0;
     flex-grow: 1;
     max-width: 100%;
     width: 100%;
+  }
+  .form-row .col {
+    padding-right: 5px;
+    padding-left: 5px;
   }
   .buttonTooltip {
     display: flex;
