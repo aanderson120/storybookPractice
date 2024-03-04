@@ -4,7 +4,7 @@
 
   export let label = "";
   export let backgroundColor = "bg-[#223FAB]";
-  export let primary = false;
+  export let primary = true;
 
   $: style = backgroundColor ? `background-color: ${backgroundColor}` : "";
   $: textColor = backgroundColor === "transparent" ? "!text-black" : "";

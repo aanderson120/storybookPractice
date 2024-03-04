@@ -3,7 +3,6 @@
 import type { Meta, StoryObj } from "@storybook/svelte";
 
 import AspireFormQuestion from "./AspireFormQuestion.svelte";
-
 //Creates documentation for storybook. run "npm run storybook" to see stories
 const meta = {
   title: "Form Question",
@@ -57,7 +56,7 @@ export const withText: Story = {
 };
 
 //Question with text input on 'Yes' and error validation
-    // (could use warning validation as well or instead)
+// (could use warning validation as well or instead)
 export const withInfoValidation: Story = {
   args: {
     required: true,

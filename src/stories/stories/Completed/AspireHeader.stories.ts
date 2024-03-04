@@ -21,12 +21,12 @@ type Story = StoryObj<AspireHeader>;
 export const Primary: Story = {
   args: {
     label: "Header",
-    primary: true,
   },
 };
 export const Secondary: Story = {
   args: {
     label: "Header",
+    primary: false,
   },
 };
 export const Transparent: Story = {
