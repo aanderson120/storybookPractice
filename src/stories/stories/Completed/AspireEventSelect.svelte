@@ -19,7 +19,7 @@
       CampusName: "",
     },
   ];
-  export let selected = "";
+  export let selected = {};
   export let label = "";
   export let eventType = "";
   export let loading = false;

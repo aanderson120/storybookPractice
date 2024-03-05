@@ -22,11 +22,9 @@
     >
       <div class="card-body !p-0">
         <slot />
-        <!-- <img
-          src="https://th.bing.com/th/id/R.c56f5dfb07c94aa5f6ec414c2a751300?rik=rOqR9dpb6vGblw&pid=ImgRaw&r=0"
-          alt="placeholder"
-          style="width: 275px; height: 657px; object-fit: cover; object-position: center;"
-        /> -->
+        <!-- <AspireResidentBox
+            bind:residentObj={selectedEvent.residentObj}
+          /> -->
       </div>
     </div>
   </div>

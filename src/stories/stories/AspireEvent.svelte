@@ -2,14 +2,15 @@
   import AspireCard from "./Completed/AspireCard.svelte";
   //AspireEvent.svelte
   //Layout for events
+  import moment from "moment";
+  // import MDBIcon from "mdbsvelte/src/MDBIcon.svelte";
 
   import AspireEventSelect from "./Completed/AspireEventSelect.svelte";
   import AspireFatalErrorCard from "./Completed/AspireFatalErrorCard.svelte";
   import AspireHeader from "./Completed/AspireHeader.svelte";
   import AspireNoEventCard from "./Completed/AspireNoEventCard.svelte";
   import AspireRow from "./Completed/AspireRow.svelte";
-  import AspireTextArea from "./Completed/AspireTextArea.svelte";
-  import AspireTextInput from "./Completed/AspireTextInput.svelte";
+  import AspireResidentBox from "./AspireResidentBox.svelte";
 
   export let placement = "sm:!pl-64";
   export let event = "";
@@ -22,14 +23,14 @@
       ResidentDOB: "",
       DateOfFall: "",
       CampusName: "",
+      residentObj: {},
     },
   ];
-  export let selected = "";
-  export let increasedSusceptibility = "";
-  export let susceptibilityInterventions = "";
-  export let additionalEventInfo = "";
-  export let additionalInterventions = "";
   export let selectedEvent = {};
+  export let card1Header = "Nurse's Note - Controls";
+  export let card2Header = "Vitals from RTasks";
+  export let card3Header = "";
+  export let card4Header = "Nurse's Note";
 
   function saveNoteValues() {
     Object.keys(selectedEvent).forEach((key) => {
@@ -50,15 +51,14 @@
     {:else} -->
   <div class="w-full px-4 mx-auto mb-4">
     <div class="w-full">
+      <AspireEventSelect
+        label="Open {event} Events"
+        {atceventopenevents}
+        bind:selected={selectedEvent}
+      />
       <fieldset class="md:mr-[366px]">
-        <AspireEventSelect
-          label="Open Fall Events"
-          {atceventopenevents}
-          {selected}
-        />
         <aside
           class="flex
-            hidden
             md:fixed
             md:mr-5
             md:top-[155px]
@@ -68,17 +68,14 @@
             right-0"
         >
           <AspireCard residentCard>
-            <img
-              src="https://th.bing.com/th/id/R.c56f5dfb07c94aa5f6ec414c2a751300?rik=rOqR9dpb6vGblw&pid=ImgRaw&r=0"
-              alt="placeholder"
-              style="width: 275px; height: 657px; object-fit: cover; object-position: center;"
-            />
+            <AspireResidentBox bind:residentObj={selectedEvent.residentObj} />
           </AspireCard>
         </aside>
         <!-- {#if selectedEvent && selectedEvent.isActivated("Fall Events")} -->
         <AspireRow className="justify-between">
           <AspireCard size="md:w-[48%]">
-            <AspireHeader label="Nurse's Note - Controls" />
+            <AspireHeader label={card1Header} />
+            <slot name="card1" />
             <div class="d-flex flex-row-reverse w-full h-full">
               <div class="d-flex flex-col-reverse buttonTooltip ml-7">
                 <button
@@ -96,7 +93,8 @@
             </div>
           </AspireCard>
           <AspireCard size="md:w-[48%]">
-            <AspireHeader label="Fall Summary from RTasks" />
+            <AspireHeader label={card2Header} />
+            <slot name="card2" />
             <div class="d-flex flex-row-reverse w-full h-full">
               <div class="d-flex flex-col-reverse buttonTooltip ml-7">
                 <button
@@ -114,33 +112,8 @@
             </div>
           </AspireCard>
           <AspireCard>
-            <AspireHeader label="Notifications" />
-            <AspireTextArea
-              label="Increased Susceptibility to Falls"
-              bind:text={increasedSusceptibility}
-              id="increasedSusceptibility"
-              placeholder="Please add any information regarding the resident's increased susceptibility to falls here. (optional)"
-            />
-            {#if increasedSusceptibility}
-              <AspireTextInput
-                size="50"
-                bind:value={susceptibilityInterventions}
-                placeholder="Increased Fall Susceptibility Interventions"
-              />
-            {/if}
-            <AspireTextArea
-              label="Additional Information"
-              bind:text={additionalEventInfo}
-              id="textArea"
-              placeholder="Enter text here"
-            />
-            {#if additionalEventInfo}
-              <AspireTextInput
-                size="50"
-                bind:value={additionalInterventions}
-                placeholder="Additional Interventions"
-              />
-            {/if}
+            <AspireHeader label={card3Header} />
+            <slot name="card3" />
             <div class="d-flex flex-row-reverse w-full h-full">
               <div class="d-flex flex-col-reverse buttonTooltip ml-7">
                 <button
@@ -158,7 +131,29 @@
             </div>
           </AspireCard>
           <AspireCard>
-            <AspireHeader label="Nurse's Note" />
+            <span id="formattedNurseNote">
+              <AspireHeader label={card4Header} />
+              <h6 class="font-light text-base mb-2">
+                Resident's Name (DOB): {selectedEvent
+                  ? selectedEvent.ResidentFirstName
+                  : ""}
+                {selectedEvent ? selectedEvent.ResidentLastName : ""} ({selectedEvent
+                  ? selectedEvent.ResidentDOB
+                  : ""})
+              </h6>
+              <h6 class="font-light text-base mb-2">
+                Campus: {selectedEvent ? selectedEvent.CampusName : ""}
+              </h6>
+              <h6 class="font-light text-base mb-2">
+                Event Date and Time: {selectedEvent
+                  ? moment(selectedEvent.DateOfFall)
+                      .local()
+                      .format("ddd, MMM DD, YYYY  HH:mm:ss")
+                  : ""}
+              </h6>
+              <br />
+              <slot name="card4" />
+            </span>
           </AspireCard>
         </AspireRow>
         <!-- {/if} -->

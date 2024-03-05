@@ -1,6 +1,7 @@
 <script>
   // AspireCollapsible.svelte
   // A box that can be collapsed/expanded, using our standard icons.
+  // import MDBIcon from "mdbsvelte/src/MDBIcon.svelte";
 
   import Row from "./AspireRow.svelte";
   import Column from "./AspireColumn.svelte";
@@ -48,13 +49,7 @@
 
   <div class="collapsible my-2">
     <div class={display}>
-      <!-- <slot /> -->
-      <textarea
-        class="form-control"
-        title="additionalInformation"
-        rows="3"
-        placeholder="Enter additional information here"
-      />
+      <slot />
     </div>
   </div>
 </div>
