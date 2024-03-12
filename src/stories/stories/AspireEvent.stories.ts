@@ -3,6 +3,7 @@
 import type { Meta, StoryObj } from "@storybook/svelte";
 
 import AspireEvent from "./AspireEvent.svelte";
+
 const meta = {
   title: "Event",
   component: AspireEvent,
@@ -20,9 +21,9 @@ export const Falls: Story = {
       {
         EventSK: "6156445",
         ResidentSK: "4060123",
-        ResidentLastName: "Barron",
-        ResidentFirstName: "Jimmy",
-        ResidentDOB: "01/01/1900",
+        ResidentLastName: "Alwauysfalls",
+        ResidentFirstName: "Martin",
+        ResidentDOB: "1930-02-01",
         DateOfFall: "2023-06-15T21:00:00Z",
         CampusName: "A Test Campus",
         residentObj: {

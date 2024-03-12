@@ -6,6 +6,7 @@
   export let label = "";
   export let isChecked = false;
   export let required = false;
+  export let callbackOnSelectFn = () => {};
 
   $: require = required ? "" : "hidden";
 </script>
@@ -17,6 +18,7 @@
     name={id}
     {id}
     bind:checked={isChecked}
+    on:change={callbackOnSelectFn}
   />
   <label class="form-check-label" for={id}> {label} </label>
   <span

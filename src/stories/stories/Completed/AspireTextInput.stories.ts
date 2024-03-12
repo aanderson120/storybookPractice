@@ -19,6 +19,7 @@ type Story = StoryObj<AspireTextInput>;
 export const Default: Story = {
   args: {
     placeholder: "Default",
+    size: 50,
   },
 };
 
@@ -32,6 +33,7 @@ export const Validation: Story = {
     hasWarning: true,
     errorMessage: "There is an error",
     warningMessage: "There is a warning",
+    size: 50,
   },
 };
 
@@ -42,6 +44,7 @@ export const Error: Story = {
     withTooltip: true,
     hasError: true,
     errorMessage: "There is an error",
+    size: 50,
   },
 };
 
@@ -52,5 +55,6 @@ export const Warning: Story = {
     withTooltip: true,
     hasWarning: true,
     warningMessage: "There is a warning",
+    size: 50,
   },
 };

@@ -1,5 +1,4 @@
 <script>
-  import AspireCard from "./Completed/AspireCard.svelte";
   //AspireEvent.svelte
   //Layout for events
   import moment from "moment";
@@ -11,6 +10,9 @@
   import AspireNoEventCard from "./Completed/AspireNoEventCard.svelte";
   import AspireRow from "./Completed/AspireRow.svelte";
   import AspireResidentBox from "./AspireResidentBox.svelte";
+  import AspireButton from "./Completed/AspireButton.svelte";
+  import AspireCard from "./Completed/AspireCard.svelte";
+  import AspireNurseNote from "./AspireNurseNote.svelte";
 
   export let placement = "sm:!pl-64";
   export let event = "";
@@ -27,10 +29,11 @@
     },
   ];
   export let selectedEvent = {};
+  //headers for each card - slot names are card1, card2, card3, nurseNote
   export let card1Header = "Nurse's Note - Controls";
   export let card2Header = "Vitals from RTasks";
   export let card3Header = "";
-  export let card4Header = "Nurse's Note";
+  export let submitButtonPush = () => {};
 
   function saveNoteValues() {
     Object.keys(selectedEvent).forEach((key) => {
@@ -131,29 +134,9 @@
             </div>
           </AspireCard>
           <AspireCard>
-            <span id="formattedNurseNote">
-              <AspireHeader label={card4Header} />
-              <h6 class="font-light text-base mb-2">
-                Resident's Name (DOB): {selectedEvent
-                  ? selectedEvent.ResidentFirstName
-                  : ""}
-                {selectedEvent ? selectedEvent.ResidentLastName : ""} ({selectedEvent
-                  ? selectedEvent.ResidentDOB
-                  : ""})
-              </h6>
-              <h6 class="font-light text-base mb-2">
-                Campus: {selectedEvent ? selectedEvent.CampusName : ""}
-              </h6>
-              <h6 class="font-light text-base mb-2">
-                Event Date and Time: {selectedEvent
-                  ? moment(selectedEvent.DateOfFall)
-                      .local()
-                      .format("ddd, MMM DD, YYYY  HH:mm:ss")
-                  : ""}
-              </h6>
-              <br />
-              <slot name="card4" />
-            </span>
+            <AspireNurseNote {event} {selectedEvent} {submitButtonPush}>
+              <slot name="nurseNote" /></AspireNurseNote
+            >
           </AspireCard>
         </AspireRow>
         <!-- {/if} -->

@@ -189,7 +189,9 @@
           <p class="text-[#D42142]">Please enter a valid value</p>
         {/if}
         <span class="input-group-btn input-wrapper" style="padding: 0px;" />
-        <AspireDatePicker bind:value={infoDate} size="20" />
+        <div class="col">
+          <AspireDatePicker bind:value={infoDate} size="20" />
+        </div>
       </div>
     </div>
   </div>

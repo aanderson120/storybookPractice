@@ -16,17 +16,15 @@
   }
 </script>
 
-<div class="col">
-  <input
-    {id}
-    type="date"
-    {placeholder}
-    bind:value
-    class="form-control mx-5 max-w-[90%] ml-10 flex-row"
-    {size}
-  />
-  <label class="ml-10 mt-2" for={id}>{label}</label>
-</div>
+<label class="whitespace-nowrap mr-2" for={id}>{label}</label>
+<input
+  {id}
+  type="date"
+  {placeholder}
+  bind:value
+  class="form-control mx-5 max-w-[90%] ml-10 flex-row"
+  {size}
+/>
 
 <style>
   .form-control {
