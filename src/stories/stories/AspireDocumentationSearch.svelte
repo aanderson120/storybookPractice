@@ -1,9 +1,12 @@
 <script>
+  //AspireDocumentation.svelte
+  //Component to search residents in event documentation
   import AspireHeader from "./Completed/AspireHeader.svelte";
   import AspireButton from "./Completed/AspireButton.svelte";
   import AspireDisplayInputItems from "./Completed/AspireDisplayInputItems.svelte";
   import AspireDatePicker from "./Completed/AspireDatePicker.svelte";
   import AspireTextInput from "./Completed/AspireTextInput.svelte";
+  import AspireCard from "./Completed/AspireCard.svelte";
 
   export let eventType = "";
   export let startDate = "";
@@ -69,67 +72,66 @@
   }
 </script>
 
-<div class="card shadow-xl p-4 mt-4 !rounded-none w-full">
-  <div class="card-body !p-0">
-    <AspireHeader label={`${eventType} Events`} />
-    <h4 class="text-2xl font-light mb-1">Date Range</h4>
-    <div>
-      <span class="date-input inline-flex m-2.5">
-        <AspireDatePicker
-          label="Start date:"
-          bind:value={startDate}
-          placeholder="Select Date"
-          size={10}
-          id="start-date"
-        />
-      </span>
-      <span class="date-input inline-flex m-2.5">
-        <AspireDatePicker
-          label="End date:"
-          bind:value={endDate}
-          placeholder="Select Date"
-          size={10}
-          id="end-date"
-        />
-      </span>
-      <AspireButton label="Change" primary={false} clickFn={updateIncidents} />
-    </div>
-    <AspireTextInput
-      size={50}
-      bind:value={searchTerm}
-      placeholder="Search Residents"
-      on:input={filterByResident}
-    />
-    <div class="text-lg m-4 d-flex flex-wrap justify-between">
-      <AspireDisplayInputItems
-        itemSet={atceventopenevents.map((event) => ({
-          formType: "checkBox",
-          value: false,
-          promptText: event.ResidentFirstName + " " + event.ResidentLastName,
-          id: event.EventSK,
-        }))}
+<AspireCard>
+  <AspireHeader label={`${eventType} Events`} />
+  <h4 class="text-2xl font-light mb-1">Date Range</h4>
+  <div>
+    <span class="date-input inline-flex m-2.5">
+      <AspireDatePicker
+        label="Start date:"
+        bind:value={startDate}
+        placeholder="Select Date"
+        size={10}
+        id="start-date"
       />
-    </div>
-    <div>
-      <div>
-        <AspireButton
-          clickFn={() => {
-            allEvents.markAllSelected();
-            selectionsChanged();
-          }}
-          label="Select All"
-        ></AspireButton>
-        <AspireButton
-          clickFn={() => {
-            allEvents.clearAllSelected();
-            selectionsChanged();
-          }}
-          label="Remove Selected"
-        ></AspireButton>
-      </div>
-    </div>
+    </span>
+    <span class="date-input inline-flex m-2.5">
+      <AspireDatePicker
+        label="End date:"
+        bind:value={endDate}
+        placeholder="Select Date"
+        size={10}
+        id="end-date"
+      />
+    </span>
+    <AspireButton label="Change" primary={false} clickFn={updateIncidents} />
   </div>
-</div>
+  <AspireTextInput
+    size={50}
+    bind:value={searchTerm}
+    placeholder="Search Residents"
+    on:input={filterByResident}
+  />
+  <div class="text-lg m-4 d-flex flex-wrap justify-between">
+    <AspireDisplayInputItems
+      itemSet={atceventopenevents.map((event) => ({
+        formType: "checkBox",
+        value: false,
+        promptText: event.ResidentFirstName + " " + event.ResidentLastName,
+        id: event.EventSK,
+      }))}
+    />
+  </div>
+  <div>
+    <AspireButton
+      clickFn={() => {
+        allEvents.markAllSelected();
+        selectionsChanged();
+      }}
+      label="Select All"
+    ></AspireButton>
+    <AspireButton
+      clickFn={() => {
+        allEvents.clearAllSelected();
+        selectionsChanged();
+      }}
+      label="Remove Selected"
+    ></AspireButton>
+  </div>
+  <!-- {#if allEvents.selectedCount() === 0}
+    <h4 class="text-2xl font-light m-2">No Events Selected</h4>
+  {/if} -->
+</AspireCard>
 
 <style>
   .d-flex {

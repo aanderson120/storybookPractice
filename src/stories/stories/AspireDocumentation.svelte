@@ -6,10 +6,10 @@
   import AspireButton from "./Completed/AspireButton.svelte";
   import AspireHeader from "./Completed/AspireHeader.svelte";
   import AspireFatalErrorCard from "./Completed/AspireFatalErrorCard.svelte";
-  import AspireCheckBoxSet from "./AspireCheckBoxSet.svelte";
   import AspireDocumentationSearch from "./AspireDocumentationSearch.svelte";
+  import AspireCard from "./Completed/AspireCard.svelte";
+  import AspireDocumentationReport from "./AspireDocumentationReport.svelte";
 
-  export let allEvents;
   export let startDate = "";
   export let endDate = "";
   export let searchTerm = "";
@@ -21,8 +21,9 @@
   export let updateIncidents = () => {};
   export let selectedEvent = {};
   export let eventType = "";
-  export let atceventopenevents = [
+  export let allEvents = [
     {
+      selected: true,
       CampusName: "",
       DateOfFall: "",
       EventSK: "",
@@ -30,67 +31,29 @@
       ResidentFirstName: "",
       ResidentLastName: "",
       ResidentSK: "",
+      fallDetails: {
+        objList: [
+          {
+            Answer: "",
+            CreatedAt: "",
+            CreatedBy: "",
+            Question: "",
+          },
+        ],
+      },
     },
   ];
-
-  // Call this function whenever selection of events changes. It will activate
-  // the events so all details are avaialble, and cause the event info on the
-  // screen to refresh.
-
-  async function selectionsChanged() {
-    for (var i = 0; i < allEvents.objList.length; i++) {
-      await new Promise(async (next) => {
-        let result = {};
-        if (allEvents.objList[i].selected) {
-          result = await allEvents.objList[i].activate({
-            purpose: "Doc Falls Not Reviewed",
-          });
-
-          if (result) {
-            if (result.error) {
-              console.log("Internal Error reading fall details.");
-              return {};
-            }
-          }
-        }
-        if (result) {
-          return next();
-        }
-      });
-    }
-    allEvents.objList = allEvents.objList;
-    return {};
-  }
-
-  // Function to filter on resident name, given the searchTerm that the
-  // user gave us.
-  const filterByResident = () => {
-    if (searchTerm) {
-      eventsFilterFn = (event) => {
-        let residentName =
-          `${event.ResidentFirstName} ${selectedEvent.ResidentLastName}`.toLowerCase();
-        return residentName.includes(searchTerm.toLocaleLowerCase());
-      };
-    } else {
-      eventsFilterFn = () => {
-        return true;
-      };
-    }
-  };
 </script>
 
 <form
   class="sm:!pl-64"
   id="falls-form"
-  <!--
   on:keydown={(event) => {
     if (event.key === "Enter") {
       event.preventDefault();
     }
   }}
-  --
 >
-  >
   <!-- {#if $thisSession && $thisSession.fatalErrorOnPage}
     <AspireFatalErrorCard ErrMsg$FatalErrorOnPage="Fatal Error on Page" />
   {:else if $thisSession && $thisSession.selectedCampusObj && allEvents && allEvents.objList} -->
@@ -100,15 +63,16 @@
         <fieldset>
           <AspireDocumentationSearch
             {eventType}
-            {atceventopenevents}
+            atceventopenevents={allEvents}
             {startDate}
             {endDate}
             {searchTerm}
           />
-          <div class="card shadow-xl p-4 mt-4 !rounded-none w-full">
-            <!-- {#if allEvents.selectedCount() === 0}
-              <h4 class="text-2xl font-light m-2">No Events Selected</h4>
-            {:else} -->
+          <!-- {#if allEvents.selectedCount() === 0}
+            <h4 class="text-2xl font-light m-2">No Events Selected</h4>
+          {:else} -->
+          <AspireDocumentationReport printArea="printable" />
+          <!-- <div class="card shadow-xl p-4 mt-4 !rounded-none w-full">
             <div id="printable">
               {#each allEvents as event}
                 {#if event.selected}
@@ -181,11 +145,6 @@
                           </tbody>
                         </table>
                       </div>
-                      <br /><br />
-                      <!-- <h3>Vitals Recorded</h3>
-                            <MDBTable>
-                              <MDBTableHead />
-                            </MDBTable> -->
                       <br />
                       <div class="pt-1.5 block">
                         <h4 class="underline">Nurse Note From Aspire</h4>
@@ -200,13 +159,6 @@
                                     break-inside-auto">{event.NurseNoteText}</pre>
                         </div>
                       </div>
-                      <!-- <h4>
-                              <span>EXECUTIVE DIRECTOR REVIEW COMMENTS</span>
-                            </h4>
-                            <br />
-                            <div class="form-group">
-                              <pre style="white-space: pre-wrap;">{edNote}</pre>
-                            </div> -->
                       <div class="print">
                         <AspireButton
                           id={event.EventSK}
@@ -219,8 +171,8 @@
                 {/if}
               {/each}
             </div>
-            <!-- {/if} -->
-          </div>
+          </div> -->
+          <!-- {/if} -->
         </fieldset>
       </Col>
     </Row>
