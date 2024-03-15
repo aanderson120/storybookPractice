@@ -13,7 +13,14 @@
   export let endDate = "";
   export let searchTerm = "";
   export let selectedEvent = {};
-  let allEvents;
+  // export let allEvents = [
+  //   {
+  //     markAllSelected: {},
+  //     objList: [
+  //       { formType: "checkBox", selected: false, promptText: "", id: "" },
+  //     ],
+  //   },
+  // ];
   export let updateIncidents = () => {};
 
   export let atceventopenevents = [
@@ -21,6 +28,7 @@
       CampusName: "",
       DateOfFall: "",
       EventSK: "",
+      EDNoteText: "",
       NurseNoteText: "",
       ResidentFirstName: "",
       ResidentLastName: "",
@@ -47,28 +55,27 @@
     }
   };
   async function selectionsChanged() {
-    for (var i = 0; i < allEvents.objList.length; i++) {
-      await new Promise(async (next) => {
-        let result = {};
-        if (allEvents.objList[i].selected) {
-          result = await allEvents.objList[i].activate({
-            purpose: "Doc Falls Not Reviewed",
-          });
-
-          if (result) {
-            if (result.error) {
-              console.log("Internal Error reading fall details.");
-              return {};
-            }
-          }
-        }
-        if (result) {
-          return next();
-        }
-      });
-    }
-    allEvents.objList = allEvents.objList;
-    return {};
+    // for (var i = 0; i < allEvents.objList.length; i++) {
+    //   await new Promise(async (next) => {
+    //     let result = {};
+    //     if (allEvents.objList[i].selected) {
+    //       result = await allEvents.objList[i].activate({
+    //         purpose: "Doc Falls Not Reviewed",
+    //       });
+    //       if (result) {
+    //         if (result.error) {
+    //           console.log("Internal Error reading fall details.");
+    //           return {};
+    //         }
+    //       }
+    //     }
+    //     if (result) {
+    //       return next();
+    //     }
+    //   });
+    // }
+    // allEvents.objList = allEvents.objList;
+    // return {};
   }
 </script>
 
@@ -98,8 +105,8 @@
   </div>
   <AspireTextInput
     size={50}
-    bind:value={searchTerm}
     placeholder="Search Residents"
+    bind:value={searchTerm}
     on:input={filterByResident}
   />
   <div class="text-lg m-4 d-flex flex-wrap justify-between">
@@ -110,20 +117,22 @@
         promptText: event.ResidentFirstName + " " + event.ResidentLastName,
         id: event.EventSK,
       }))}
+      callbackOnSelectFn={selectionsChanged}
+      filterFn={eventsFilterFn}
     />
   </div>
   <div>
     <AspireButton
       clickFn={() => {
-        allEvents.markAllSelected();
-        selectionsChanged();
+        // allEvents.markAllSelected();
+        // selectionsChanged();
       }}
       label="Select All"
     ></AspireButton>
     <AspireButton
       clickFn={() => {
-        allEvents.clearAllSelected();
-        selectionsChanged();
+        // allEvents.clearAllSelected();
+        // selectionsChanged();
       }}
       label="Remove Selected"
     ></AspireButton>

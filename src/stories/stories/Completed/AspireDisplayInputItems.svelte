@@ -7,6 +7,9 @@
   import AspireCheckbox from "./AspireCheckbox.svelte";
   import AspireTextInput from "./AspireTextInput.svelte";
 
+  export let callbackOnSelectFn = () => {};
+  export let filterFn;
+
   // The list of objects
   export let itemSet = [
     {
@@ -20,9 +23,10 @@
 
 {#if itemSet && itemSet.length > 0}
   {#each itemSet as item}
-    {#if item.formType === "checkBox"}
+    {#if item.formType === "checkBox" && !item.promptText.includes("*None*") && filterFn(item)}
       <AspireCheckbox
         bind:isChecked={item.value}
+        {callbackOnSelectFn}
         label={item.promptText}
         id={item.id}
       />
