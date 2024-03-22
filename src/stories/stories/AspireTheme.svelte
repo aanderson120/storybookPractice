@@ -1,8 +1,8 @@
 <script>
   //AspireTheme.svelte
 
-  import AspireColumn from "./Completed/AspireColumn.svelte";
-  import AspireRow from "./Completed/AspireRow.svelte";
+  import AspireColumn from "./AspireColumn.svelte";
+  import AspireRow from "./AspireRow.svelte";
 
   //Visual of colors used
   export let mode = "light" || "dark";

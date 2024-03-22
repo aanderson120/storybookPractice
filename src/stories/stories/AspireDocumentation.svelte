@@ -1,23 +1,17 @@
 <script>
-  import moment from "moment";
   import Container from "./AspireContainer.svelte";
-  import Row from "./Completed/AspireRow.svelte";
-  import Col from "./Completed/AspireColumn.svelte";
-  import AspireButton from "./Completed/AspireButton.svelte";
-  import AspireHeader from "./Completed/AspireHeader.svelte";
-  import AspireFatalErrorCard from "./Completed/AspireFatalErrorCard.svelte";
+  import Row from "./AspireRow.svelte";
+  import Col from "./AspireColumn.svelte";
+  import AspireButton from "./AspireButton.svelte";
+  import AspireFatalErrorCard from "./AspireFatalErrorCard.svelte";
   import AspireDocumentationSearch from "./AspireDocumentationSearch.svelte";
-  import AspireCard from "./Completed/AspireCard.svelte";
+  import AspireCard from "./AspireCard.svelte";
   import AspireDocumentationReport from "./AspireDocumentationReport.svelte";
 
   export let startDate = "";
   export let endDate = "";
   export let searchTerm = "";
-  let eventsFilterFn = (event) => {
-    return true;
-  };
-  export let updateIncidents = () => {};
-  export let selectedEvent = {};
+
   export let eventType = "Fall" || "Fall with Director Review";
   export let atceventopenevents = [
     {
@@ -44,6 +38,7 @@
       },
     },
   ];
+
   function printSection() {
     var getFullContent = document.body.innerHTML;
     var printsection = document.getElementById("printable").innerHTML;
@@ -78,7 +73,7 @@
             {searchTerm}
           />
           <!-- {#if allEvents.selectedCount() === 0}
-            <h4 class="text-2xl font-light m-2">No Events Selected</h4>
+            <h4 class="text-xl font-light m-2">No Events Selected</h4>
           {:else} -->
           <AspireDocumentationReport
             printArea={"printable"}

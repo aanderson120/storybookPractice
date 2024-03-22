@@ -12,7 +12,7 @@
 </script>
 
 <h1
-  class={["rounded-xl w-full text-center text-xl p-2", textColor, mode].join(
+  class={["rounded-xl w-full text-center text-lg p-2", textColor, mode].join(
     " "
   )}
   {style}

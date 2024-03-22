@@ -4,14 +4,14 @@
   import moment from "moment";
   // import MDBIcon from "mdbsvelte/src/MDBIcon.svelte";
 
-  import AspireEventSelect from "./Completed/AspireEventSelect.svelte";
-  import AspireFatalErrorCard from "./Completed/AspireFatalErrorCard.svelte";
-  import AspireHeader from "./Completed/AspireHeader.svelte";
-  import AspireNoEventCard from "./Completed/AspireNoEventCard.svelte";
-  import AspireRow from "./Completed/AspireRow.svelte";
+  import AspireEventSelect from "./AspireEventSelect.svelte";
+  import AspireFatalErrorCard from "./AspireFatalErrorCard.svelte";
+  import AspireHeader from "./AspireHeader.svelte";
+  import AspireNoEventCard from "./AspireNoEventCard.svelte";
+  import AspireRow from "./AspireRow.svelte";
   import AspireResidentBox from "./AspireResidentBox.svelte";
-  import AspireButton from "./Completed/AspireButton.svelte";
-  import AspireCard from "./Completed/AspireCard.svelte";
+  import AspireButton from "./AspireButton.svelte";
+  import AspireCard from "./AspireCard.svelte";
   import AspireNurseNote from "./AspireNurseNote.svelte";
 
   export let placement = "sm:!pl-64";
@@ -70,7 +70,7 @@
             md:max-w-[350px]
             right-0"
         >
-          <AspireCard residentCard>
+          <AspireCard asideCard>
             <AspireResidentBox bind:residentObj={selectedEvent.residentObj} />
           </AspireCard>
         </aside>

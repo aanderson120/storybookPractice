@@ -42,11 +42,5 @@
       border-color 0.15s ease-in-out,
       box-shadow 0.15s ease-in-out;
   }
-  .col {
-    position: relative;
-    flex-basis: 0;
-    flex-grow: 1;
-    max-width: 100%;
-    width: 100%;
-  }
+
 </style>

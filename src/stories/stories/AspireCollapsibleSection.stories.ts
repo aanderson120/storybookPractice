@@ -15,8 +15,16 @@ export default meta;
 type Story = StoryObj<AspireCollapsibleSection>;
 
 //Collapsible Section variants and args needed to display them
-export const CollapsibleSection: Story = {
+export const DefaultCollapsed: Story = {
   args: {
     label: "Collapsible Section",
+    story: true,
+  },
+};
+export const DefaultExpanded: Story = {
+  args: {
+    label: "Collapsible Section",
+    expanded: true,
+    story: true,
   },
 };

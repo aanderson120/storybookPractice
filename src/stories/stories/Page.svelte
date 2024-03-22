@@ -1,6 +1,6 @@
 <script lang="ts">
   import './page.css';
-  import Header from './Completed/AspireHeader.svelte';
+  import Header from './AspireHeader.svelte';
 
   let user: { name: string } | null = null;
 </script>

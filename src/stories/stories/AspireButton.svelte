@@ -103,16 +103,16 @@
     border: none !important;
   }
   .small {
+    font-size: 10px;
+    padding: 9px 12px;
+  }
+  .medium {
     font-size: 12px;
     padding: 10px 16px;
   }
-  .medium {
+  .large {
     font-size: 14px;
     padding: 11px 20px;
-  }
-  .large {
-    font-size: 16px;
-    padding: 12px 24px;
   }
   .full {
     justify-content: center;

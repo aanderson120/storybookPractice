@@ -13,13 +13,16 @@
   // hoverText will show on mouse-over of this field.
   export let hoverText = "";
 
+  //Only for story example use DO NOT use
+  export let story = false;
+
   let display = "";
   $: display = expanded ? "contents" : "hidden";
 </script>
 
 <div title={hoverText}>
   <Row
-    className=" rounded-xl w-full text-center text-xl bg-[#223FAB] text-white p-2"
+    className=" rounded-xl w-full text-center text-lg bg-[#223FAB] text-white p-2"
   >
     <Column size="10" margin1="" className={headerClass + " flex-1 md:flex-1"}
       ><span class="px-4" style="text-wrap: nowrap;">{label}</span>
@@ -50,6 +53,12 @@
   <div class="collapsible my-2">
     <div class={display}>
       <slot />
+      {#if story === true}
+        <img
+          src="https://wallpaperaccess.com/full/349151.jpg"
+          alt="placeholder"
+        />
+      {/if}
     </div>
   </div>
 </div>

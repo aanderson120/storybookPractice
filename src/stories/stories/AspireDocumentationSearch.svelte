@@ -1,26 +1,18 @@
 <script>
   //AspireDocumentation.svelte
   //Component to search residents in event documentation
-  import AspireHeader from "./Completed/AspireHeader.svelte";
-  import AspireButton from "./Completed/AspireButton.svelte";
-  import AspireDisplayInputItems from "./Completed/AspireDisplayInputItems.svelte";
-  import AspireDatePicker from "./Completed/AspireDatePicker.svelte";
-  import AspireTextInput from "./Completed/AspireTextInput.svelte";
-  import AspireCard from "./Completed/AspireCard.svelte";
+  import AspireHeader from "./AspireHeader.svelte";
+  import AspireButton from "./AspireButton.svelte";
+  import AspireDisplayInputItems from "./AspireDisplayInputItems.svelte";
+  import AspireDatePicker from "./AspireDatePicker.svelte";
+  import AspireTextInput from "./AspireTextInput.svelte";
+  import AspireCard from "./AspireCard.svelte";
 
   export let eventType = "";
   export let startDate = "";
   export let endDate = "";
   export let searchTerm = "";
   export let selectedEvent = {};
-  // export let allEvents = [
-  //   {
-  //     markAllSelected: {},
-  //     objList: [
-  //       { formType: "checkBox", selected: false, promptText: "", id: "" },
-  //     ],
-  //   },
-  // ];
   export let updateIncidents = () => {};
 
   export let atceventopenevents = [
@@ -81,7 +73,7 @@
 
 <AspireCard>
   <AspireHeader label={`${eventType} Events`} />
-  <h4 class="text-2xl font-light mb-1">Date Range</h4>
+  <h4 class="text-xl font-light mb-1">Date Range</h4>
   <div>
     <span class="date-input inline-flex m-2.5">
       <AspireDatePicker
@@ -109,7 +101,7 @@
     bind:value={searchTerm}
     on:input={filterByResident}
   />
-  <div class="text-lg m-4 d-flex flex-wrap justify-between">
+  <div class="text-base m-4 d-flex flex-wrap justify-between">
     <AspireDisplayInputItems
       itemSet={atceventopenevents.map((event) => ({
         formType: "checkBox",
@@ -138,7 +130,7 @@
     ></AspireButton>
   </div>
   <!-- {#if allEvents.selectedCount() === 0}
-    <h4 class="text-2xl font-light m-2">No Events Selected</h4>
+    <h4 class="text-xl font-light m-2">No Events Selected</h4>
   {/if} -->
 </AspireCard>
 

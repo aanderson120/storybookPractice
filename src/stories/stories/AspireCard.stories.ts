@@ -1,23 +1,35 @@
-//AspireMetricHistory.stories.ts
-//Story for AspireMetricHistory component
+//AspireCard.stories.ts
+//Card component
 import type { Meta, StoryObj } from "@storybook/svelte";
 
-import AspireMetricHistory from "./AspireMetricHistory.svelte";
+import AspireCard from "./AspireCard.svelte";
 
-//creates documentation for storybook. run "npm run storybook" to see stories
+//Creates documentation for storybook. run "npm run storybook" to see stories
 const meta = {
-  title: "AspireMetricHistory",
-  component: AspireMetricHistory,
+  title: "Card",
+  component: AspireCard,
   tags: ["autodocs"],
-} satisfies Meta<AspireMetricHistory>;
+} satisfies Meta<AspireCard>;
 
 export default meta;
-type Story = StoryObj<AspireMetricHistory>;
+type Story = StoryObj<AspireCard>;
 
-//AspireMetricHistory variants and args needed to display them
-export const Default: Story = {
+//Card args needed to display
+export const Card: Story = {
+  args: { story: true },
+};
+
+export const HalfCard: Story = {
   args: {
-    metricType: "",
+    size: "md:w-[48%]",
+    story: true,
+  },
+};
+
+export const ResidentCard: Story = {
+  args: {
+    asideCard: true,
+    story: true,
     residentObj: {
       BradenScore: "-1",
       CampusId: "RTasks2",

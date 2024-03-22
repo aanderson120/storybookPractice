@@ -4,11 +4,13 @@
 
   //uses tailwindcss classes
   export let size = "";
+  export let asideCard = false;
 
-  export let residentCard = false;
+  //Only for story example use DO NOT use
+  export let story = false;
 </script>
 
-{#if residentCard === true}
+{#if asideCard === true}
   <div class="w-full">
     <div
       class="card
@@ -22,9 +24,12 @@
     >
       <div class="card-body !p-0">
         <slot />
-        <!-- <AspireResidentBox
-            bind:residentObj={selectedEvent.residentObj}
-          /> -->
+        {#if story === true}
+          <img
+            src="https://th.bing.com/th/id/OIP.P5mqMjEyAToHSYrsCIDJcQAAAA?rs=1&pid=ImgDetMain"
+            alt="placeholder"
+          />
+        {/if}
       </div>
     </div>
   </div>
@@ -32,11 +37,13 @@
   <div class="card shadow-xl p-4 mt-2 mb-2 !rounded-none w-full {size}">
     <div class="card-body !p-0">
       <slot />
-      <!-- <img
-        src="https://th.bing.com/th/id/R.e08e4d5703a31384bb9e1654290d8e66?rik=D6AqAXcFLT28cQ&riu=http%3a%2f%2fwww.lyonsdendesign.co.uk%2fwp-content%2fuploads%2f2013%2f08%2ffeatures.jpg&ehk=B85e6n8zNM2Yc8k5TdBd0X0UqhkU5ftOdS73aB8L398%3d&risl=&pid=ImgRaw&r=0"
-        alt="placeholder"
-        class="w-full h-40 object-cover"
-      /> -->
+      {#if story === true}
+        <img
+          src="https://th.bing.com/th/id/R.e08e4d5703a31384bb9e1654290d8e66?rik=D6AqAXcFLT28cQ&riu=http%3a%2f%2fwww.lyonsdendesign.co.uk%2fwp-content%2fuploads%2f2013%2f08%2ffeatures.jpg&ehk=B85e6n8zNM2Yc8k5TdBd0X0UqhkU5ftOdS73aB8L398%3d&risl=&pid=ImgRaw&r=0"
+          alt="placeholder"
+          class="w-full h-40 object-cover"
+        />
+      {/if}
     </div>
   </div>
 {/if}

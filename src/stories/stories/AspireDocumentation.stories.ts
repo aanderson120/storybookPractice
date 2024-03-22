@@ -35,7 +35,7 @@ export const Fall: Story = {
           objList: [
             {
               Answer: "None",
-              CreatedAt: "2023-11-10T16:25:38.250000Z",
+              CreatedAt: "2023-11-10",
               CreatedBy: "Smith, Brandy",
               DetailSK: "62086247",
               EventSK: "6502268",
@@ -44,7 +44,7 @@ export const Fall: Story = {
             {
               Answer:
                 "Resident came out for lunch staff redirected resident and told her she had about an hr until lunch. Resident grabbed her head and stated she had a bump on it. Staff asked resident what happened, resident stated she thinks she fell out of bed. Resident does have a night stand next to bed she could have bumped it on. Fall was unwitnessed",
-              CreatedAt: "2023-11-10T16:25:38.437000Z",
+              CreatedAt: "2023-11-10",
               CreatedBy: "Smith, Brandy",
               DetailSK: "62086255",
               EventSK: "6502268",
@@ -52,7 +52,7 @@ export const Fall: Story = {
             },
             {
               Answer: "*Not provided*",
-              CreatedAt: "2023-11-10T16:25:38.453000Z",
+              CreatedAt: "2023-11-10",
               CreatedBy: "Smith, Brandy",
               DetailSK: "62086266",
               EventSK: "6502268",
@@ -60,7 +60,7 @@ export const Fall: Story = {
             },
             {
               Answer: "No",
-              CreatedAt: "2023-11-10T16:25:38.420000Z",
+              CreatedAt: "2023-11-10",
               CreatedBy: "Smith, Brandy",
               DetailSK: "62086253",
               EventSK: "6502268",
@@ -68,7 +68,7 @@ export const Fall: Story = {
             },
             {
               Answer: "*Not provided*",
-              CreatedAt: "2023-11-10T16:25:38.453000Z",
+              CreatedAt: "2023-11-10",
               CreatedBy: "Smith, Brandy",
               DetailSK: "62086268",
               EventSK: "6502268",
@@ -93,7 +93,7 @@ export const Fall: Story = {
           objList: [
             {
               Answer: "Walker",
-              CreatedAt: "2023-11-29T22:44:53.007000Z",
+              CreatedAt: "2023-11-29",
               CreatedBy: "Smith, Brandy",
               DetailSK: "63123147",
               EventSK: "6554645",
@@ -102,7 +102,7 @@ export const Fall: Story = {
             {
               Answer:
                 "resident was laying in bed when she attempted to sit up and ended up sliding out of bed. no signs of injuries.",
-              CreatedAt: "2023-11-29T22:44:53.070000Z",
+              CreatedAt: "2023-11-29",
               CreatedBy: "Smith, Brandy",
               DetailSK: "63123155",
               EventSK: "6554645",
@@ -110,7 +110,7 @@ export const Fall: Story = {
             },
             {
               Answer: "*Not provided*",
-              CreatedAt: "2023-11-10T16:25:38.453000Z",
+              CreatedAt: "2023-11-29",
               CreatedBy: "Smith, Brandy",
               DetailSK: "62086266",
               EventSK: "6502268",
@@ -118,7 +118,7 @@ export const Fall: Story = {
             },
             {
               Answer: "None",
-              CreatedAt: "2023-11-29T22:44:53.053000Z",
+              CreatedAt: "2023-11-29",
               CreatedBy: "Smith, Brandy",
               DetailSK: "63123153",
               EventSK: "6554645",
@@ -126,7 +126,7 @@ export const Fall: Story = {
             },
             {
               Answer: "*Not provided*",
-              CreatedAt: "2023-11-29T22:44:53.103000Z",
+              CreatedAt: "2023-11-29",
               CreatedBy: "Smith, Brandy",
               DetailSK: "63123168",
               EventSK: "6554645",
@@ -151,7 +151,7 @@ export const Fall: Story = {
           objList: [
             {
               Answer: "Walker",
-              CreatedAt: "2023-11-10T16:54:52.360000Z",
+              CreatedAt: "2023-11-10",
               CreatedBy: "Smith, Brandy",
               DetailSK: "62086948",
               EventSK: "6502300",
@@ -160,7 +160,7 @@ export const Fall: Story = {
             {
               Answer:
                 "resident states that he was getting out of bed to go to his walker (he keeps it at the foot of his bed) but was very dizzy and fell over between his bed and his bedside table. denies hitting his head. resident transferred himself to his toilet, then pushed his call button when he noticed blood on his sleeve (Blood was coagulated, so staff are unsure of when the fall actually happened).",
-              CreatedAt: "2023-11-10T16:54:52.390000Z",
+              CreatedAt: "2023-11-10",
               CreatedBy: "Smith, Brandy",
               DetailSK: "62086956",
               EventSK: "6502300",
@@ -168,7 +168,7 @@ export const Fall: Story = {
             },
             {
               Answer: "*Not provided*",
-              CreatedAt: "2023-11-10T16:54:52.390000Z",
+              CreatedAt: "2023-11-10",
               CreatedBy: "Smith, Brandy",
               DetailSK: "62086967",
               EventSK: "6502300",
@@ -176,7 +176,7 @@ export const Fall: Story = {
             },
             {
               Answer: "No",
-              CreatedAt: "2023-11-10T16:54:52.377000Z",
+              CreatedAt: "2023-11-10",
               CreatedBy: "Smith, Brandy",
               DetailSK: "62086954",
               EventSK: "6502300",
@@ -184,7 +184,7 @@ export const Fall: Story = {
             },
             {
               Answer: "*Not provided*",
-              CreatedAt: "2023-11-10T16:54:52.390000Z",
+              CreatedAt: "2023-11-10",
               CreatedBy: "Smith, Brandy",
               DetailSK: "62086969",
               EventSK: "6502300",
@@ -209,7 +209,7 @@ export const Fall: Story = {
           objList: [
             {
               Answer: "Walker",
-              CreatedAt: "2023-11-12T14:58:51.057000Z",
+              CreatedAt: "2023-11-12",
               CreatedBy: "Smith, Brandy",
               DetailSK: "62166649",
               EventSK: "6506212",
@@ -218,7 +218,7 @@ export const Fall: Story = {
             {
               Answer:
                 "Resident was in a hurry to go to dining room for lunch, when she got up in her recliner she was dizzy and continued to keep walking she fell down, she pushed call button and staff went to check on her",
-              CreatedAt: "2023-11-12T14:58:51.117000Z",
+              CreatedAt: "2023-11-12",
               CreatedBy: "Smith, Brandy",
               DetailSK: "62166657",
               EventSK: "6506212",
@@ -226,7 +226,7 @@ export const Fall: Story = {
             },
             {
               Answer: "*Not provided*",
-              CreatedAt: "2023-11-12T14:58:51.133000Z",
+              CreatedAt: "2023-11-12",
               CreatedBy: "Smith, Brandy",
               DetailSK: "62166668",
               EventSK: "6506212",
@@ -234,7 +234,7 @@ export const Fall: Story = {
             },
             {
               Answer: "Glasses",
-              CreatedAt: "2023-11-12T14:58:51.117000Z",
+              CreatedAt: "2023-11-12",
               CreatedBy: "Smith, Brandy",
               DetailSK: "62166655",
               EventSK: "6506212",
@@ -242,7 +242,7 @@ export const Fall: Story = {
             },
             {
               Answer: "No",
-              CreatedAt: "2023-11-12T14:58:51.133000Z",
+              CreatedAt: "2023-11-12",
               CreatedBy: "Smith, Brandy",
               DetailSK: "62166670",
               EventSK: "6506212",

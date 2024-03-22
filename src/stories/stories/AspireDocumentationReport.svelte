@@ -3,9 +3,9 @@
   //Component to display the event report in documentation
   import moment from "moment";
 
-  import AspireCard from "./Completed/AspireCard.svelte";
-  import AspireHeader from "./Completed/AspireHeader.svelte";
-  import AspireButton from "./Completed/AspireButton.svelte";
+  import AspireCard from "./AspireCard.svelte";
+  import AspireHeader from "./AspireHeader.svelte";
+  import AspireButton from "./AspireButton.svelte";
 
   export let eventType = "Fall" || "Fall with Director Review";
   export let printArea = "";
@@ -56,7 +56,7 @@
     {#each atceventopenevents as event}
       {#if event.selected}
         <!-- {#if !event.isActivated("Doc Falls Not Reviewed")}
-          <h4 class="text-2xl font-light m-2">
+          <h4 class="text-xl font-light m-2">
             ...Details loading for selected event for {event.ResidentFirstName}
             {event.ResidentLastName}
           </h4>

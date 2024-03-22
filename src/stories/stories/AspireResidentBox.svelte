@@ -35,22 +35,20 @@
     UnitNumber: "",
   };
   import AspireResidentCommonInfo from "./AspireResidentCommonInfo.svelte";
-  import AspireCollapsibleSection from "./Completed/AspireCollapsibleSection.svelte";
+  import AspireCollapsibleSection from "./AspireCollapsibleSection.svelte";
 </script>
 
-<AspireCollapsibleSection label="Resident Details" headerClass="text-xl">
+<AspireCollapsibleSection label="Resident Details">
   <AspireResidentCommonInfo bind:residentObj />
 </AspireCollapsibleSection>
 <!-- <AspireCollapsibleSection
   headerText="Falls History"
-  headerClass="text-lg"
   expandedCallBackFn={activateFalls}
 >
   <AspireFallsHistory bind:residentObj />
 </AspireCollapsibleSection> -->
 <!-- <AspireCollapsibleSection
   headerText="Recent Nurse Notes"
-  headerClass="text-lg"
   expandedCallBackFn={activateNurseNotes}
 >
   {#if residentObj && residentObj.getContainer(AspireRecentResidentNursesNotes)}
@@ -72,7 +70,6 @@
 <!-- {#if includeBloodSugarsHistory}
   <AspireCollapsibleSection
     headerText="Blood Sugar History"
-    headerClass="text-lg"
   >
     <AspireMetricHistory metricType="Blood Sugar" , {residentObj} />
   </AspireCollapsibleSection>

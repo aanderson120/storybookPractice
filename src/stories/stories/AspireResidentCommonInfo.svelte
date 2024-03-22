@@ -1,7 +1,7 @@
 <script>
   // AspireResidentCommonInfo.svelte
   // Element for displaying the commonly used resident information
-  import AspireCollapsibleSection from "./Completed/AspireCollapsibleSection.svelte";
+  import AspireCollapsibleSection from "./AspireCollapsibleSection.svelte";
   //   import AspireInputTable from "./AspireInputTable.svelte";
   export let residentObj = {
     BradenScore: "",
@@ -32,7 +32,7 @@
     ResidentPK: "",
     SLUMsScore: "",
     UnitNumber: "",
-  }; 
+  };
   //   let medsTableFormat = [
   //     { label: "Name", hoverText: "Medication Name", display: "Name" },
   //     { label: "Date", hoverText: "Date of prescription", display: "StartDate" },
@@ -41,7 +41,7 @@
 </script>
 
 <center class="mb-2">
-  <h3 class="text-xl">Resident Information</h3>
+  <h3 class="text-lg">Resident Information</h3>
   <br />
   <!-- svelte-ignore a11y-missing-attribute -->
   <a>
@@ -62,7 +62,7 @@
 
     <div class="justify-center mb-1 mt-2">
       {#if residentObj}
-        <div class="text-xl">
+        <div class="text-lg">
           {residentObj && residentObj.ResidentFirstName
             ? residentObj.ResidentFirstName
             : ""}
@@ -110,7 +110,7 @@
     : "None Listed"}
 </div>
 
-<AspireCollapsibleSection label="As-Needed Meds:" headerClass="text-lg">
+<AspireCollapsibleSection label="As-Needed Meds:">
   <!-- {#if residentObj && residentObj.PRNMedsContainer && residentObj.PRNMedsContainer.objList.length > 0}
     <AspireInputTable
       bind:allRows={residentObj.PRNMedsContainer.objList}
@@ -122,7 +122,7 @@
   None
   <!-- {/if} -->
 </AspireCollapsibleSection>
-<AspireCollapsibleSection label="Scheduled Meds:" headerClass="text-lg">
+<AspireCollapsibleSection label="Scheduled Meds:">
   <!-- {#if residentObj && residentObj.scheduledMedsContainer && residentObj.scheduledMedsContainer.objList.length > 0}
     <AspireInputTable
       bind:allRows={residentObj.scheduledMedsContainer.objList}
@@ -134,7 +134,7 @@
   None
   <!-- {/if} -->
 </AspireCollapsibleSection>
-<AspireCollapsibleSection label="Diagnoses:" headerClass="text-lg">
+<AspireCollapsibleSection label="Diagnoses:">
   <div class="content">
     {residentObj && residentObj.Diagnoses
       ? residentObj.Diagnoses
