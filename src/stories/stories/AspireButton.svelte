@@ -21,7 +21,7 @@
   /**
    * @type {string} What background color to use
    */
-  export let backgroundColor = undefined;
+  export let backgroundColor = "";
   /**
    * @type {'icon' |'small' | 'medium' | 'large' | 'full'} How large should the button be?
    */
@@ -29,7 +29,7 @@
   /**
    * @type {string} Button contents
    */
-  export let label;
+  export let label="";
 
   $: mode = primary ? "primary" : "secondary";
   $: bordered = border ? "border" : "border-none";

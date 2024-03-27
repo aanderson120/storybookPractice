@@ -32,7 +32,7 @@ export const Default: Story = {
         EventSK: "6156451",
         ResidentSK: "2405",
         ResidentLastName: "Boop",
-        ResidentFirstName: "betty",
+        ResidentFirstName: "Betty",
         ResidentDOB: "02/11/1930",
         DateOfFall: "2023-06-15T21:00:00Z",
         CampusName: "A Test Campus",
