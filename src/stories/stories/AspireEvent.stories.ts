@@ -17,8 +17,17 @@ type Story = StoryObj<AspireEvent>;
 export const Falls: Story = {
   args: {
     event: "Falls",
+    allCustomers: [{ displayVal: "Diamond" }, { displayVal: "Edgewood" }],
+    allCampuses: [
+      { displayVal: "A Test Campus" },
+      { displayVal: "Alexandria" },
+      { displayVal: "Baxter" },
+      { displayVal: "Belgrade" },
+      { displayVal: "Billings" },
+    ],
     atceventopenevents: [
       {
+        displayVal: "Martin Alwauysfalls",
         EventSK: "6156445",
         ResidentSK: "4060123",
         ResidentLastName: "Alwauysfalls",
@@ -59,6 +68,7 @@ export const Falls: Story = {
         },
       },
       {
+        displayVal: "Betty Boop",
         EventSK: "6156451",
         ResidentSK: "2405",
         ResidentLastName: "Boop",
@@ -108,8 +118,17 @@ export const Falls: Story = {
 export const FallMitigation: Story = {
   args: {
     event: "Fall Reduction and Mitigation",
+    allCustomers: [{ displayVal: "Diamond" }, { displayVal: "Edgewood" }],
+    allCampuses: [
+      { displayVal: "A Test Campus" },
+      { displayVal: "Alexandria" },
+      { displayVal: "Baxter" },
+      { displayVal: "Belgrade" },
+      { displayVal: "Billings" },
+    ],
     atceventopenevents: [
       {
+        displayVal: "Jimmy Barron",
         EventSK: "6156445",
         ResidentSK: "4060123",
         ResidentLastName: "Barron",
@@ -150,6 +169,7 @@ export const FallMitigation: Story = {
         },
       },
       {
+        displayVal: "Betty Boop",
         EventSK: "6156451",
         ResidentSK: "2405",
         ResidentLastName: "Boop",
@@ -198,8 +218,17 @@ export const FallMitigation: Story = {
 export const Glucose: Story = {
   args: {
     event: "Glucose",
+    allCustomers: [{ displayVal: "Diamond" }, { displayVal: "Edgewood" }],
+    allCampuses: [
+      { displayVal: "A Test Campus" },
+      { displayVal: "Alexandria" },
+      { displayVal: "Baxter" },
+      { displayVal: "Belgrade" },
+      { displayVal: "Billings" },
+    ],
     atceventopenevents: [
       {
+        displayVal: "Jimmy Barron",
         EventSK: "6156445",
         ResidentSK: "4060123",
         ResidentLastName: "Barron",
@@ -240,6 +269,7 @@ export const Glucose: Story = {
         },
       },
       {
+        displayVal: "Betty Boop",
         EventSK: "6156451",
         ResidentSK: "2405",
         ResidentLastName: "Boop",
@@ -288,8 +318,17 @@ export const Glucose: Story = {
 export const CHF: Story = {
   args: {
     event: "CHF",
+    allCustomers: [{ displayVal: "Diamond" }, { displayVal: "Edgewood" }],
+    allCampuses: [
+      { displayVal: "A Test Campus" },
+      { displayVal: "Alexandria" },
+      { displayVal: "Baxter" },
+      { displayVal: "Belgrade" },
+      { displayVal: "Billings" },
+    ],
     atceventopenevents: [
       {
+        displayVal: "Jimmy Barron",
         EventSK: "6156445",
         ResidentSK: "4060123",
         ResidentLastName: "Barron",
@@ -330,6 +369,7 @@ export const CHF: Story = {
         },
       },
       {
+        displayVal: "Betty Boop",
         EventSK: "6156451",
         ResidentSK: "2405",
         ResidentLastName: "Boop",

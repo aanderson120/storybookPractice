@@ -5,16 +5,28 @@
   import AspireButton from "./AspireButton.svelte";
 
   export let switchCustomer = () => {};
-  export let selectedCustomer = "";
+  export let selectedCustomer = {};
   export let allCustomers = [{ displayVal: "" }];
   export let switchCampus = () => {};
-  export let selectedCampus = "";
+  export let selectedCampus = {};
   export let allCampuses = [{ displayVal: "" }];
   export let switchEvent = () => {};
-  export let selectedEvent = "";
-  export let allEvents = [{ displayVal: "" }];
+  export let selected;
+  export let allEvents = [
+    {
+      displayVal: "",
+      EventSK: "",
+      ResidentSK: "",
+      ResidentLastName: "",
+      ResidentFirstName: "",
+      ResidentDOB: "",
+      DateOfFall: "",
+      CampusName: "",
+      residentObj: {},
+    },
+  ];
   let showElement;
-  export let trueFalse = { true: "on", false: "off" };
+  let trueFalse = { true: "on", false: "off" };
 
   // If the user specified a sub element to check (showElement), check that Element of the
   // given row against the given true/false values and return result.
@@ -117,7 +129,7 @@
                       flat
                       label={event.displayVal}
                       on:change={switchEvent}
-                      bind:value={selectedEvent}
+                      bind:value={selected}
                     />
                   </li>
                 {/if}

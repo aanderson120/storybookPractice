@@ -6,7 +6,8 @@
   export let flat = false;
   export let border = false;
   export let id = "buttona";
-  export let clickFn;
+  let clickFn;
+  export let value;
   // hoverText will appear on mouse-over.
   export let hoverText = "";
   function handleClick(id) {

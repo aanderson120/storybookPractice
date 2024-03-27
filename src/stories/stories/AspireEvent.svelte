@@ -13,11 +13,21 @@
   import AspireButton from "./AspireButton.svelte";
   import AspireCard from "./AspireCard.svelte";
   import AspireNurseNote from "./AspireNurseNote.svelte";
+  import TopNav from "./TopNav.svelte";
+
+  let switchCustomer = () => {};
+  let switchCampus = () => {};
+  let switchEvent = () => {};
+  export let allCustomers = [{ displayVal: "" }];
+  export let allCampuses = [{ displayVal: "" }];
+  let selectedCustomer = {};
+  let selectedCampus = {};
 
   export let placement = "sm:!pl-64";
   export let event = "";
   export let atceventopenevents = [
     {
+      displayVal: "",
       EventSK: "",
       ResidentSK: "",
       ResidentLastName: "",
@@ -45,6 +55,17 @@
   }
 </script>
 
+<TopNav
+  {switchCustomer}
+  {switchCampus}
+  {switchEvent}
+  {allCustomers}
+  {allCampuses}
+  allEvents={atceventopenevents}
+  {selectedCustomer}
+  {selectedCampus}
+  bind:selected={selectedEvent}
+/>
 <form class={placement} id={`${event}-form`}>
   <!-- {#if $thisSession && $thisSession.fatalErrorOnPage}
     <AspireFatalErrorCard ErrMsg$FatalErrorOnPage="Fatal Error on Page" />
@@ -54,11 +75,6 @@
     {:else} -->
   <div class="w-full px-4 mx-auto mb-4">
     <div class="w-full">
-      <AspireEventSelect
-        label="Open {event} Events"
-        {atceventopenevents}
-        bind:selected={selectedEvent}
-      />
       <fieldset class="md:mr-[366px]">
         <aside
           class="flex
