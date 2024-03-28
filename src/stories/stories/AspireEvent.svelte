@@ -61,7 +61,7 @@
   {switchEvent}
   {allCustomers}
   {allCampuses}
-  allEvents={atceventopenevents}
+  {atceventopenevents}
   {selectedCustomer}
   {selectedCampus}
   bind:selected={selectedEvent}
@@ -78,7 +78,7 @@
       <fieldset class="md:mr-[366px]">
         <aside
           class="flex
-            md:fixed
+            md:absolute
             md:mr-5
             md:top-[155px]
             mt-4

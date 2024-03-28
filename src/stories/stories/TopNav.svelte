@@ -1,6 +1,7 @@
 <script>
   //TopNav.svelte
   //Top navigation bar component
+  import { createEventDispatcher } from "svelte";
 
   import AspireButton from "./AspireButton.svelte";
 
@@ -12,7 +13,7 @@
   export let allCampuses = [{ displayVal: "" }];
   export let switchEvent = () => {};
   export let selected;
-  export let allEvents = [
+  export let atceventopenevents = [
     {
       displayVal: "",
       EventSK: "",
@@ -27,6 +28,8 @@
   ];
   let showElement;
   let trueFalse = { true: "on", false: "off" };
+
+  const dispatch = createEventDispatcher();
 
   // If the user specified a sub element to check (showElement), check that Element of the
   // given row against the given true/false values and return result.
@@ -61,21 +64,19 @@
         src="https://th.bing.com/th/id/OIP.WV2__AG0EMxrBhZ0S8tH9AHaC9?rs=1&pid=ImgDetMain"
       />
     </a>
-    <div class="text-sm breadcrumbs ml-12 !overflow-visible w-full">
+    <div class="text-sm text-black breadcrumbs ml-12 !overflow-visible w-full">
       <ul>
         <li>
           <div class="dropdown dropdown-hover">
-            <div tabindex="0" role="button" class="btn m-1">
-              Change Customer
-            </div>
+            <div tabindex="0" role="button" class="m-1">Change Customer</div>
             <!-- svelte-ignore a11y-no-noninteractive-tabindex -->
             <ul
               tabindex="0"
-              class="dropdown-content z-[1] menu p-2 shadow bg-base-100 w-full"
+              class="dropdown-content z-[1] menu p-2 shadow rounded-box bg-white w-full"
             >
               {#each allCustomers as customer}
                 {#if showOption(customer)}
-                  <li>
+                  <li class="hover:bg-[#E6E6E6] rounded-md">
                     <AspireButton
                       backgroundColor="transparent"
                       flat
@@ -91,20 +92,20 @@
         </li>
         <li>
           <div class="dropdown dropdown-hover">
-            <div tabindex="0" role="button" class="btn m-1">Change Campus</div>
+            <div tabindex="0" role="button" class="m-1">Change Campus</div>
             <!-- svelte-ignore a11y-no-noninteractive-tabindex -->
             <ul
               tabindex="0"
-              class="dropdown-content z-[1] menu p-2 shadow bg-base-100 w-max"
+              class="dropdown-content z-[1] menu p-2 shadow rounded-box bg-white w-max"
             >
               {#each allCampuses as campus}
                 {#if showOption(campus)}
-                  <li>
+                  <li class="flex-nowrap hover:bg-[#E6E6E6] rounded-md">
                     <AspireButton
                       backgroundColor="transparent"
                       flat
                       label={campus.displayVal}
-                      on:change={switchCampus}
+                      on:change={() => dispatch("clear")}
                       bind:value={selectedCampus}
                     />
                   </li>
@@ -115,15 +116,15 @@
         </li>
         <li>
           <div class="dropdown dropdown-hover">
-            <div tabindex="0" role="button" class="btn m-1">Change Event</div>
+            <div tabindex="0" role="button" class="m-1">Change Event</div>
             <!-- svelte-ignore a11y-no-noninteractive-tabindex -->
             <ul
               tabindex="0"
-              class="dropdown-content z-[1] menu p-2 shadow bg-base-100 w-max"
+              class="dropdown-content z-[1] menu p-2 shadow rounded-box bg-white w-max"
             >
-              {#each allEvents as event}
+              {#each atceventopenevents as event}
                 {#if showOption(event)}
-                  <li class="flex-nowrap">
+                  <li class="flex-nowrap hover:bg-[#E6E6E6] rounded-md">
                     <AspireButton
                       backgroundColor="transparent"
                       flat

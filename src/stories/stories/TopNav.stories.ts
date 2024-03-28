@@ -26,7 +26,7 @@ export const Primary: Story = {
       { displayVal: "Belgrade" },
       { displayVal: "Billings" },
     ],
-    allEvents: [
+    atceventopenevents: [
       {
         displayVal: "Martin Alwauysfalls",
         EventSK: "6156445",

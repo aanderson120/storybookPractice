@@ -17,7 +17,6 @@
         shadow-xl
         p-4
         bg-white
-        max-h-[73vh]
         scroll
         overflow-y-auto
         !rounded-none"

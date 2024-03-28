@@ -45,7 +45,7 @@
 
 <button
   type="button"
-  class={["btn", `${size}`, `${textColor}`, mode, bordered, shadow].join(" ")}
+  class={["btn content-center", `${size}`, `${textColor}`, mode, bordered, shadow].join(" ")}
   title={hoverText}
   {style}
   {id}
