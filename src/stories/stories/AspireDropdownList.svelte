@@ -11,6 +11,7 @@
   $: scrolling = scroll ? "scroll" : "";
 </script>
 
+<!-- svelte-ignore a11y-no-noninteractive-tabindex -->
 <ul
   tabindex="0"
   class="

@@ -5,14 +5,8 @@
 
   import AspireButton from "./AspireButton.svelte";
 
-  export let switchCustomer = () => {};
-  export let selectedCustomer = {};
   export let allCustomers = [{ displayVal: "" }];
-  export let switchCampus = () => {};
-  export let selectedCampus = {};
   export let allCampuses = [{ displayVal: "" }];
-  export let switchEvent = () => {};
-  export let selected;
   export let atceventopenevents = [
     {
       displayVal: "",
@@ -26,10 +20,18 @@
       residentObj: {},
     },
   ];
+  export let selectedCampus = {};
+  export let selectedCustomer = {};
+  export let selectedEvent={};
+
   let showElement;
   let trueFalse = { true: "on", false: "off" };
 
   const dispatch = createEventDispatcher();
+
+  const switchCustomer = (customer) => () => (selectedCustomer += customer);
+  const switchCampus = (campus) => () => (selectedCampus += campus);
+  const switchEvent = (event) => () => (selectedEvent += event);
 
   // If the user specified a sub element to check (showElement), check that Element of the
   // given row against the given true/false values and return result.
@@ -68,7 +70,11 @@
       <ul>
         <li>
           <div class="dropdown dropdown-hover">
-            <div tabindex="0" role="button" class="m-1">Change Customer</div>
+            <div tabindex="0" role="button" class="m-1">
+              {selectedCustomer.displayVal === undefined
+                ? "Select Customer"
+                : selectedCustomer.displayVal}
+            </div>
             <!-- svelte-ignore a11y-no-noninteractive-tabindex -->
             <ul
               tabindex="0"
@@ -81,8 +87,11 @@
                       backgroundColor="transparent"
                       flat
                       label={customer.displayVal}
-                      on:change={switchCustomer}
-                      bind:value={selectedCustomer}
+                      clickFn={() => {
+                        switchCustomer(customer);
+                        selectedCustomer = customer;
+                      }}
+                      on:click={() => dispatch("submit")}
                     />
                   </li>
                 {/if}
@@ -92,7 +101,11 @@
         </li>
         <li>
           <div class="dropdown dropdown-hover">
-            <div tabindex="0" role="button" class="m-1">Change Campus</div>
+            <div tabindex="0" role="button" class="m-1">
+              {selectedCampus.displayVal === undefined
+                ? "Select Campus"
+                : selectedCampus.displayVal}
+            </div>
             <!-- svelte-ignore a11y-no-noninteractive-tabindex -->
             <ul
               tabindex="0"
@@ -105,8 +118,11 @@
                       backgroundColor="transparent"
                       flat
                       label={campus.displayVal}
-                      on:change={() => dispatch("clear")}
-                      bind:value={selectedCampus}
+                      clickFn={() => {
+                        switchCampus(campus);
+                        selectedCampus = campus;
+                      }}
+                      on:change={() => dispatch("submit")}
                     />
                   </li>
                 {/if}
@@ -116,7 +132,11 @@
         </li>
         <li>
           <div class="dropdown dropdown-hover">
-            <div tabindex="0" role="button" class="m-1">Change Event</div>
+            <div tabindex="0" role="button" class="m-1">
+              {selectedEvent.displayVal === undefined
+                ? "Select Event"
+                : selectedEvent.displayVal}
+            </div>
             <!-- svelte-ignore a11y-no-noninteractive-tabindex -->
             <ul
               tabindex="0"
@@ -129,8 +149,11 @@
                       backgroundColor="transparent"
                       flat
                       label={event.displayVal}
-                      on:change={switchEvent}
-                      bind:value={selected}
+                      clickFn={() => {
+                        switchEvent(event);
+                        selectedEvent = event;
+                      }}
+                      on:change={() => dispatch("submit")}
                     />
                   </li>
                 {/if}
@@ -141,7 +164,15 @@
       </ul>
     </div>
     <div class="w-full d-flex flex-row-reverse">
-      <AspireButton size="icon" label=":D" flat border />
+      <AspireButton
+        clickFn={() => {
+          console.log(selectedEvent.displayVal);
+        }}
+        size="icon"
+        label=":D"
+        flat
+        border
+      />
     </div>
   </div>
 </div>

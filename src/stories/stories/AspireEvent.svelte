@@ -15,9 +15,6 @@
   import AspireNurseNote from "./AspireNurseNote.svelte";
   import TopNav from "./TopNav.svelte";
 
-  let switchCustomer = () => {};
-  let switchCampus = () => {};
-  let switchEvent = () => {};
   export let allCustomers = [{ displayVal: "" }];
   export let allCampuses = [{ displayVal: "" }];
   let selectedCustomer = {};
@@ -56,15 +53,12 @@
 </script>
 
 <TopNav
-  {switchCustomer}
-  {switchCampus}
-  {switchEvent}
   {allCustomers}
   {allCampuses}
   {atceventopenevents}
-  {selectedCustomer}
-  {selectedCampus}
-  bind:selected={selectedEvent}
+  bind:selectedCustomer
+  bind:selectedCampus
+  bind:selectedEvent
 />
 <form class={placement} id={`${event}-form`}>
   <!-- {#if $thisSession && $thisSession.fatalErrorOnPage}

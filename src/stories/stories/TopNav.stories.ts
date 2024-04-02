@@ -18,7 +18,11 @@ type Story = StoryObj<TopNav>;
 //Top Nav variants and args needed to display them
 export const Primary: Story = {
   args: {
-    allCustomers: [{ displayVal: "Diamond" }, { displayVal: "Edgewood" }],
+    allCustomers: [
+      { displayVal: "Diamond" },
+      { displayVal: "Edgewood" },
+      { displayVal: "PSLO" },
+    ],
     allCampuses: [
       { displayVal: "A Test Campus" },
       { displayVal: "Alexandria" },

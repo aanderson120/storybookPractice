@@ -10,6 +10,7 @@
 </script>
 
 <div class="dropdown dropdown-end">
+  <!-- svelte-ignore a11y-no-noninteractive-tabindex -->
   <div
     tabindex="0"
     class="btn m-1 content-center py-1.5 bg-transparent text-black"

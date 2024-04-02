@@ -6,8 +6,7 @@
   export let flat = false;
   export let border = false;
   export let id = "buttona";
-  let clickFn;
-  export let value;
+  export let clickFn;
   // hoverText will appear on mouse-over.
   export let hoverText = "";
   function handleClick(id) {
@@ -30,7 +29,7 @@
   /**
    * @type {string} Button contents
    */
-  export let label="";
+  export let label = "";
 
   $: mode = primary ? "primary" : "secondary";
   $: bordered = border ? "border" : "border-none";
@@ -45,7 +44,14 @@
 
 <button
   type="button"
-  class={["btn content-center", `${size}`, `${textColor}`, mode, bordered, shadow].join(" ")}
+  class={[
+    "btn content-center",
+    `${size}`,
+    `${textColor}`,
+    mode,
+    bordered,
+    shadow,
+  ].join(" ")}
   title={hoverText}
   {style}
   {id}
