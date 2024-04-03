@@ -22,7 +22,7 @@
   ];
   export let selectedCampus = {};
   export let selectedCustomer = {};
-  export let selectedEvent={};
+  export let selectedEvent = {};
 
   let showElement;
   let trueFalse = { true: "on", false: "off" };
@@ -52,6 +52,8 @@
       return true;
     }
   }
+
+
 </script>
 
 <div class="card w-full shadow-xl mb-12 overflow-visible !p-0 rounded-none">
@@ -166,7 +168,7 @@
     <div class="w-full d-flex flex-row-reverse">
       <AspireButton
         clickFn={() => {
-          console.log(selectedEvent.displayVal);
+          console.log(selectedCustomer);
         }}
         size="icon"
         label=":D"
