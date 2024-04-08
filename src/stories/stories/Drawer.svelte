@@ -39,7 +39,7 @@
 
 <div class="drawer drawer-end w-full">
   <input id="my-drawer-4" type="checkbox" class="drawer-toggle" />
-  <div class="drawer-content flex-row-reverse d-flex">
+  <div class="drawer-content flex-row-reverse d-flex p-4">
     <!-- Page content here -->
     <slot />
     <AspireCard>
@@ -52,7 +52,8 @@
         hover:bg-[#4285f4]
         content-center
         w-full
-        border-none">View Resident Info</label
+        border-none
+        ">View Resident Info</label
       >
     </AspireCard>
   </div>

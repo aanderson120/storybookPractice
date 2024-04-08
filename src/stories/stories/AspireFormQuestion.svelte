@@ -120,7 +120,7 @@
 {#if value && with2Inputs}
   <AspireTextInput
     withTooltip={true}
-    value={input1}
+    bind:value={input1}
     {placeholder}
     {required}
     size="50"
@@ -131,7 +131,7 @@
   />
   <AspireTextInput
     withTooltip={true}
-    value={input2}
+    bind:value={input2}
     placeholder={placeholder2}
     {required}
     size="50"
@@ -189,7 +189,7 @@
           <p class="text-[#D42142]">Please enter a valid value</p>
         {/if}
         <span class="input-group-btn input-wrapper" style="padding: 0px;" />
-          <AspireDatePicker bind:value={infoDate} size="50" />
+        <AspireDatePicker bind:value={infoDate} size="50" />
       </div>
     </div>
   </div>

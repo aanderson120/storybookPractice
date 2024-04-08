@@ -52,6 +52,7 @@ export const withText: Story = {
     question: "Question with additional info",
     additionalInfo: "",
     placeholder: "(Please enter more information)",
+    label: "",
   },
 };
 
@@ -66,6 +67,7 @@ export const withInfoValidation: Story = {
     placeholder: "Please enter more information",
     error: true,
     errorMessage: "There is an error",
+    label: "",
   },
 };
 
@@ -76,6 +78,7 @@ export const withInfoNegative: Story = {
     question: "Question with text input on 'No'",
     additionalInfo: "",
     placeholder: "Please enter more information",
+    label: "",
   },
 };
 
@@ -88,6 +91,7 @@ export const with2Inputs: Story = {
     input2: "",
     placeholder: "Input 1",
     placeholder2: "Input 2",
+    label: "",
   },
 };
 
@@ -109,6 +113,7 @@ export const infoWithDate: Story = {
     question: "Question with text input and date input",
     additionalInfo: "",
     placeholder: "Please enter more information",
+    label: "",
   },
 };
 
@@ -119,5 +124,6 @@ export const infoWithDateTime: Story = {
     question: "Question with text and date/time inputs",
     additionalInfo: "",
     placeholder: "Please enter more information",
+    label: "",
   },
 };

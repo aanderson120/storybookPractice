@@ -6,7 +6,7 @@ import TopNav from "./TopNav.svelte";
 
 //Creates documentation for storybook. run "npm run storybook" to see stories
 const meta = {
-  title: "TopNav",
+  title: "Top Nav",
   component: TopNav,
   tags: ["autodocs"],
   argTypes: {},

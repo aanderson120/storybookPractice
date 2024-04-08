@@ -15,6 +15,7 @@
   import AspireNurseNote from "./AspireNurseNote.svelte";
   import TopNav from "./TopNav.svelte";
   import Drawer from "./Drawer.svelte";
+  import AspireLocalSave from "./AspireLocalSave.svelte";
 
   export let allCustomers = [{ displayVal: "" }];
   export let allCampuses = [{ displayVal: "" }];
@@ -75,18 +76,18 @@
           class="flex
             md:absolute
             md:mr-5
-            md:top-[155px]
+            md:top-[132px]
             mt-4
             w-auto
             md:max-w-[350px]
             right-0
             flex-col"
         >
-        <Drawer bind:residentObj={selectedEvent.residentObj} />
+          <Drawer bind:residentObj={selectedEvent.residentObj} />
           <AspireCard asideCard>
             <!-- <AspireResidentBox bind:residentObj={selectedEvent.residentObj} /> -->
-            <AspireNurseNote {event} {selectedEvent} {submitButtonPush}>
-            </AspireNurseNote>
+            <AspireNurseNote {event} {selectedEvent} {submitButtonPush}
+            ></AspireNurseNote>
           </AspireCard>
         </aside>
         <!-- {#if selectedEvent && selectedEvent.isActivated("Fall Events")} -->
@@ -94,21 +95,7 @@
           <AspireCard size="md:w-[48%]">
             <AspireHeader label={card1Header} />
             <slot name="card1" />
-            <div class="d-flex flex-row-reverse w-full h-full">
-              <div class="d-flex flex-col-reverse buttonTooltip ml-7">
-                <button
-                  class="hover:text-white rounded hover:bg-[#223FAB] text-[#838383] w-[30px] h-[30px]"
-                  on:click={saveNoteValues}
-                >
-                  Save
-                  <!-- <MDBIcon size="lg" icon="save" /> -->
-                </button>
-                <span class="tooltiptext left-14"
-                  >Click to temporarily save all entered values. Values will be
-                  saved until user logs out.</span
-                >
-              </div>
-            </div>
+            <AspireLocalSave {selectedEvent} />
           </AspireCard>
           <AspireCard size="md:w-[48%]">
             <AspireHeader label={card2Header} />
@@ -129,7 +116,7 @@
               </div>
             </div>
           </AspireCard>
-          <AspireCard>
+          <AspireCard size="md:w-[48%]">
             <AspireHeader label={card3Header} />
             <slot name="card3" />
             <div class="d-flex flex-row-reverse w-full h-full">
@@ -166,29 +153,5 @@
 <style>
   .d-flex {
     display: flex !important;
-  }
-  .buttonTooltip {
-    position: relative !important;
-    display: inline-block;
-    opacity: 1;
-    cursor: help;
-  }
-
-  .tooltiptext {
-    visibility: hidden;
-    width: 350px;
-    background-color: black;
-    color: #fff;
-    text-align: center;
-    border-radius: 6px;
-    padding: 5px 0;
-
-    /* Position the tooltip */
-    position: absolute;
-    z-index: 1;
-  }
-
-  .buttonTooltip:hover .tooltiptext {
-    visibility: visible;
   }
 </style>

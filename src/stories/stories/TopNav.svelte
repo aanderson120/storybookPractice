@@ -56,7 +56,7 @@
 
 </script>
 
-<div class="card w-full shadow-xl mb-12 overflow-visible !p-0 rounded-none">
+<div class="card w-full shadow-xl mb-5 overflow-visible !p-0 rounded-none">
   <div
     class="card-body items-center p-0 !flex-row h-32 !shadow-none"
     id="breadcrumb"
