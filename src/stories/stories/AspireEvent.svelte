@@ -14,6 +14,7 @@
   import AspireCard from "./AspireCard.svelte";
   import AspireNurseNote from "./AspireNurseNote.svelte";
   import TopNav from "./TopNav.svelte";
+  import Drawer from "./Drawer.svelte";
 
   export let allCustomers = [{ displayVal: "" }];
   export let allCampuses = [{ displayVal: "" }];
@@ -78,10 +79,14 @@
             mt-4
             w-auto
             md:max-w-[350px]
-            right-0"
+            right-0
+            flex-col"
         >
+        <Drawer bind:residentObj={selectedEvent.residentObj} />
           <AspireCard asideCard>
-            <AspireResidentBox bind:residentObj={selectedEvent.residentObj} />
+            <!-- <AspireResidentBox bind:residentObj={selectedEvent.residentObj} /> -->
+            <AspireNurseNote {event} {selectedEvent} {submitButtonPush}>
+            </AspireNurseNote>
           </AspireCard>
         </aside>
         <!-- {#if selectedEvent && selectedEvent.isActivated("Fall Events")} -->
@@ -143,12 +148,13 @@
               </div>
             </div>
           </AspireCard>
-          <AspireCard>
-            <AspireNurseNote {event} {selectedEvent} {submitButtonPush}>
-              <slot name="nurseNote" /></AspireNurseNote
-            >
-          </AspireCard>
+          <!-- <AspireCard>
+              <AspireNurseNote {event} {selectedEvent} {submitButtonPush}>
+                <slot name="nurseNote" /></AspireNurseNote
+              >
+            </AspireCard> -->
         </AspireRow>
+
         <!-- {/if} -->
       </fieldset>
     </div>

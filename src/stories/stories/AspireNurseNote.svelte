@@ -37,7 +37,6 @@
   <slot />
 </span>
 <AspireButton
-  size="full"
   label="Close Event and Send Note"
   clickFn={submitButtonPush}
 ></AspireButton>
