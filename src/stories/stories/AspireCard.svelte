@@ -33,7 +33,9 @@
     </div>
   </div>
 {:else}
-  <div class="card shadow-xl p-4 mt-2 mb-2 !rounded-none w-full {size}">
+  <div
+    class="card shadow-xl p-4 mt-2 mb-2 !rounded-none w-full bg-white {size}"
+  >
     <div class="card-body !p-0">
       <slot />
       {#if story === true}
