@@ -14,12 +14,13 @@
   <div class="w-full">
     <div
       class="card
-        shadow-xl
+        shadowl-xl
         p-4
         bg-white
+        max-h-[68vh]
         scroll
         overflow-y-auto
-        !rounded-none"
+       !rounded-none"
     >
       <div class="card-body !p-0">
         <slot />
