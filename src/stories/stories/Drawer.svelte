@@ -37,41 +37,69 @@
   };
 </script>
 
-<div class="drawer drawer-end w-full top-[151px] p-4">
+<div class="drawer drawer-end w-full top-[151px] p-4 pt-0">
   <input id="my-drawer-4" type="checkbox" class="drawer-toggle" />
   <div
     class="drawer-content flex-row-reverse d-flex fixed w-[30%] right-0 md:mr-5"
   >
     <!-- Page content here -->
-
-    <AspireCard>
+    <div
+      class="hidden
+        md:contents"
+    >
+      <AspireCard>
+        <label
+          for="my-drawer-4"
+          class="
+            drawer-button
+            btn
+            text-white
+            bg-[#223FAB]
+            hover:bg-[#4285f4]
+            content-center
+            w-full
+            border-none
+        ">View Resident Info</label
+        >
+      </AspireCard>
+    </div>
+    <div
+      class="md:hidden
+        block"
+    >
       <label
         for="my-drawer-4"
-        class="drawer-button
-        btn
-        text-white
-        bg-[#223FAB]
-        hover:bg-[#4285f4]
-        content-center
-        w-full
-        border-none
-        ">View Resident Info</label
+        class="
+          drawer-button
+          btn
+          text-white
+          bg-[#223FAB]
+          hover:bg-[#4285f4]
+          content-center
+          w-full
+          border-none
+          rounded
+          h-8
+          w-8
+          mr-4"
       >
-    </AspireCard>
+        R</label
+      >
+    </div>
   </div>
   <slot />
 
-  <div class="drawer-side z-10">
+  <div class="drawer-side z-20">
     <label for="my-drawer-4" aria-label="close sidebar" class="drawer-overlay"
     ></label>
     <ul
       class="menu
-      p-4
-      w-96
-      min-h-full
-      text-base-content
-      bg-[#F3F3F3]
-      text-black"
+        p-4
+        w-96
+        min-h-full
+        text-base-content
+        bg-[#F3F3F3]
+        text-black"
     >
       <!-- Sidebar content here -->
       <AspireResidentCommonInfo bind:residentObj />

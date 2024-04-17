@@ -52,11 +52,11 @@
       return true;
     }
   }
-
-
 </script>
 
-<div class="card w-full fixed top-0 shadow-xl mb-5 overflow-visible !p-0 rounded-none">
+<div
+  class="card w-full bg-white fixed top-0 shadow-xl mb-5 overflow-visible !p-0 rounded-none z-[1]"
+>
   <div
     class="card-body items-center p-0 !flex-row h-32 !shadow-none"
     id="breadcrumb"
@@ -80,7 +80,7 @@
             <!-- svelte-ignore a11y-no-noninteractive-tabindex -->
             <ul
               tabindex="0"
-              class="dropdown-content z-[1] menu p-2 shadow rounded-box bg-white w-full"
+              class="dropdown-content z-10 menu p-2 shadow rounded-box bg-white w-full"
             >
               {#each allCustomers as customer}
                 {#if showOption(customer)}

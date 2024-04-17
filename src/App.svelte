@@ -221,412 +221,12 @@
   bind:selectedCampus
   bind:selectedEvent
 />
-<!-- svelte-ignore a11y-no-noninteractive-element-interactions -->
-<form class="sm:!pl-64" id="falls-form">
-  <AspireContainer className="mb-4">
-    <div class="w-full">
-      <Drawer bind:residentObj={selectedEvent.residentObj}>
+  <!-- svelte-ignore a11y-no-noninteractive-element-interactions -->
+  <form class="sm:!pl-64 mr-14 m:mr-0" id="falls-form">
+    <Drawer bind:residentObj={selectedEvent.residentObj}>
+      <AspireContainer className="mb-4">
+      <div class="w-full">
         <fieldset class="md:mr-[366px]">
-          <aside
-            class="flex
-            md:fixed
-            md:mr-5
-            md:top-[275px]
-            w-auto
-            md:max-w-[30%]
-            right-0"
-          >
-            <AspireCard asideCard>
-              <AspireNurseNote event="Falls" {selectedEvent} {submitButtonPush}>
-                <br />
-                {#if (selectedEvent.fallDetails && selectedEvent.fallDetails.ProviderVisitScheduled === "Yes") || providerScheduled}
-                  This resident has been scheduled with the medical director.
-                  <br /><br />
-                {/if}
-
-                <p class="mb-4">
-                  This writer was notified via {notifiedVia} that {selectedEvent
-                    ? selectedEvent.ResidentFirstName
-                    : ""}
-                  {selectedEvent ? selectedEvent.ResidentLastName : ""} (DOB: {selectedEvent
-                    ? selectedEvent.ResidentDOB
-                    : ""}) experienced a fall on {selectedEvent
-                    ? moment(selectedEvent.DateOfFall)
-                        .local()
-                        .format("ddd, MMM DD, YYYY")
-                    : ""} at {selectedEvent
-                    ? moment(selectedEvent.DateOfFall)
-                        .local()
-                        .format("HH:mm:ss")
-                    : ""}. {#if selectedEvent.emsSelected}EMS was notified on {selectedEvent.emsCalled}.
-                    {#if !selectedEvent.transportedEMS}Resident was not
-                      transported via EMS.{/if}
-                    {#if selectedEvent.transportedEMS}Resident was transported
-                      via EMS at {selectedEvent.transportedEMSNotes}.{/if}{/if}
-
-                  {#if selectedEvent.injurySelected}
-                    The resident did experience an injury. {#if selectedEvent.injuryObservations}{selectedEvent.injuryObservations.replace(
-                        /\.$/,
-                        ""
-                      )}.{/if}
-                    {#if selectedEvent.skinRelated}
-                      The resident has a skin integrity concern. {#if selectedEvent.skinObservations}{selectedEvent.skinObservations.replace(
-                          /\.$/,
-                          ""
-                        )}.{/if}
-                    {/if}
-                  {:else}
-                    The resident did not experience an injury.
-                  {/if}
-                  {#if selectedEvent.headInvolvementSelected}
-                    The resident did experience actual or suspected head
-                    involvement. {#if selectedEvent.headInvolvementObservations}{selectedEvent.headInvolvementObservations.replace(
-                        /\.$/,
-                        ""
-                      )}.{/if}
-                  {:else}
-                    The resident did not experience actual or suspected head
-                    involvement.
-                  {/if}
-                  {#if selectedEvent.anticoagulationSelected}
-                    The resident is receiving anticoagulation therapy {selectedEvent.anticoagulationObservations}.
-                  {/if}
-                  {#if selectedEvent.orthostaticLast14Days}
-                    The resident has had orthostatic blood pressure checks 1
-                    time per day for 3 days, including heart rate within the
-                    last 60 days.
-                    {#if selectedEvent.evidenceOfHypotension}
-                      Previously monitored orthostatic blood pressures indicated
-                      orthostatic hypotension: {selectedEvent.hypotensionDetails}.
-                      See the vital signs flow sheet for further information.
-                    {:else}
-                      The previously checked orthostatic pressures were WNL.
-                    {/if}
-                  {/if}
-                  {#if selectedEvent.fallDetails.Hypertension}
-                    The resident does have a diagnosis of hypertension.
-                  {:else}
-                    The resident does not have a diagnosis of hypertension.
-                  {/if}
-                  {#if selectedEvent.fallDetails.Arrhythmia}
-                    The resident does have a diagnosis of cardiac arrhythmia{#if selectedEvent.cardiacArrhythmiaNotes}:
-                      {selectedEvent.cardiacArrhythmiaNotes}.{:else}.{/if}
-                  {:else}
-                    The resident does not have a diagnosis of cardiac
-                    arrhythmia.
-                  {/if}
-                  {#if selectedEvent.ableToStand}
-                    The resident is able to stand with or without assistance.
-                  {:else}
-                    The resident is not able to stand with or without
-                    assistance. {#if selectedEvent.inabilityToStandNotes}{selectedEvent.inabilityToStandNotes}{/if}
-                  {/if}
-                  Vital signs are – T {selectedEvent.eventTemp || ""}, P {selectedEvent.eventPulse ||
-                    ""}, R {selectedEvent.eventRespiration || ""}, B/P {selectedEvent.eventBP ||
-                    ""}.
-                  {#if selectedEvent.MAHC10Score}
-                    {#if selectedEvent.MAHC10ScoreDate}
-                      Current MAHC 10 score is {selectedEvent.MAHC10Score} and was
-                      obtained on
-                      {selectedEvent.MAHC10ScoreDate}.
-                    {:else}
-                      Current MAHC 10 score is {selectedEvent.MAHC10Score}.
-                    {/if}{/if}
-                  {#if selectedEvent.SLUMSScore}
-                    {#if selectedEvent.SLUMSScoreDate}
-                      Current SLUMS/MMSE score is {selectedEvent.SLUMSScore} and
-                      was obtained on
-                      {selectedEvent.SLUMSScoreDate}.
-                    {:else}
-                      Current SLUMS/MMSE score is {selectedEvent.SLUMSScore}.
-                    {/if}{/if}
-                  {#if selectedEvent.activeInfection}
-                    The resident has an active infection: {selectedEvent.activeInfectionDetails ||
-                      ""}
-                  {/if}
-                  {#if selectedEvent.homeHealth}
-                    The resident is on home health services.
-                  {/if}
-                  {#if selectedEvent.hospice}
-                    The resident is on hospice services.
-                  {/if}
-                  {#if selectedEvent.outpatient}
-                    The resident is on outpatient services.
-                  {/if}
-                  <br />
-                </p>
-                {#if selectedEvent.includeFallSummary}
-                  <h6 class="font-light text-base mb-2">
-                    Fall Summary From RTasks:
-                  </h6>
-                  <ul class="pl-10 mb-4">
-                    <li>
-                      "{selectedEvent.fallDetails &&
-                      selectedEvent.fallDetails.Narrative
-                        ? selectedEvent.fallDetails.Narrative
-                        : ""}"
-                    </li>
-                    <li>
-                      Written By: {selectedEvent.fallDetails
-                        ? selectedEvent.fallDetails.PersonRecording == undefined
-                          ? "Unknown"
-                          : selectedEvent.fallDetails.PersonRecording
-                        : ""}
-                    </li>
-                    <li>
-                      Date: {selectedEvent.fallDetails
-                        ? moment(selectedEvent.fallDetails.DateOfRecording)
-                            .local()
-                            .format("ddd, MMM DD, YYYY")
-                        : ""}
-                    </li>
-                  </ul>
-                {/if}
-                {#if selectedEvent.increasedSusceptibility || selectedEvent.fallDetails.Arrhythmia || (selectedEvent.residentObj.medicalStatus && selectedEvent.fallDetails.OnAntihypertensives) || numFallInLast90Days > 0}
-                  <h6 class="font-light text-base mb-2">
-                    Increased Susceptibility to Falls:
-                  </h6>
-                  <ul class="pl-10 mb-4">
-                    {#if selectedEvent.increasedSusceptibility}
-                      <li>{selectedEvent.increasedSusceptibility}</li>
-                    {/if}
-                    {#if selectedEvent.residentObj.medicalStatus && selectedEvent.fallDetails.OnAntihypertensives}
-                      <li>
-                        This resident is taking one or more anti-hypertensive
-                        medications.
-                      </li>
-                    {/if}
-                    {#if selectedEvent.cardiacArrhythmia}
-                      <li>
-                        This resident has a diagnosis of cardiac arrhythmia.
-                      </li>
-                    {/if}
-                    {#if numFallInLast90Days > 0}
-                      <li>
-                        The resident has had {numFallInLast90Days} falls in the last
-                        90 days.
-                      </li>
-                    {/if}
-                    {#if selectedEvent.susceptibilityInterventions}
-                      <li>
-                        Interventions: {selectedEvent.susceptibilityInterventions}
-                      </li>
-                    {/if}
-                  </ul>
-                {/if}
-
-                {#if selectedEvent.additionalEventInfo}
-                  <h6 class="font-light text-base mb-2">
-                    Additonal Information:
-                  </h6>
-                  <p class="mb-4">
-                    {selectedEvent.additionalEventInfo}
-                    {#if selectedEvent.additionalInterventions}
-                      Interventions: {selectedEvent.additionalInterventions}
-                    {/if}
-                  </p>
-                {/if}
-                <h5 class="text-lg font-light">Actions Taken</h5>
-                <ul class="pl-10 mb-4">
-                  <li class="list-disc">
-                    Will complete focused assessment and upgrade the plan of
-                    care as appropriate
-                  </li>
-                  {#if selectedEvent.placedProvider}<li>
-                      Outside services have been notified of event.
-                    </li>{/if}
-                  {#if numFallInLast90Days >= 3}
-                    {#if selectedEvent.placedFallReduction}
-                      <li class="list-disc">
-                        The resident is on a Fall Reduction Protocol. Will
-                        review interventions and modify if necessary.
-                      </li>
-                    {:else}
-                      <li class="list-disc">
-                        The resident has been placed on the Fall Reduction
-                        Protocol with individualized interventions.
-                      </li>
-                    {/if}
-                  {:else if numFallInLast90Days < 3}
-                    <li class="list-disc">
-                      Will update the plan of care with interventions to
-                      minimize falls.
-                    </li>
-                  {/if}
-                  {#if selectedEvent.skinSeverity == "moderate" || selectedEvent.skinSeverity == "significant"}
-                    <li class="list-disc" />
-                    <li class="list-disc">
-                      The resident has been placed on the Skin Protocol. A
-                      licensed nurse will evaluate the wound weekly until
-                      resolved.
-                    </li>{/if}
-                  {#if selectedEvent.protocolsEntered}<li>
-                      The protocols have been entered on the residents Service
-                      Plan.
-                    </li>{/if}
-                  {#if selectedEvent.skinRelated}
-                    {#if selectedEvent.skinSeverity === "mild"}
-                      <li class="list-disc">
-                        Licensed Nurse will monitor until skin integrity issue
-                        is resolved
-                      </li>{/if}
-                    {#if selectedEvent.skinSeverity === "moderate" || selectedEvent.skinSeverity === "significant"}
-                      <li class="list-disc">
-                        Licensed Nurse will monitor weekly until skin integrity
-                        issue is resolved
-                      </li>{/if}
-                  {/if}
-                </ul>
-                {#if selectedEvent.injurySelected && selectedEvent.injuryInterventions}
-                  <h6 class="font-light text-base mb-2">
-                    Injury Interventions
-                  </h6>
-                  <ul class="pl-10 mb-4">
-                    <li class="list-disc">
-                      {selectedEvent.injuryInterventions}
-                    </li>
-                  </ul>
-                {/if}
-                {#if selectedEvent.injurySelected && selectedEvent.skinInterventions}
-                  <h6 class="font-light text-base mb-2">Skin Interventions</h6>
-                  <ul class="pl-10 mb-4">
-                    <li class="list-disc">
-                      {selectedEvent.skinInterventions}
-                    </li>
-                  </ul>
-                {/if}
-                {#if selectedEvent.headInvolvementSelected && selectedEvent.headInvolvementInterventions}
-                  <h6 class="font-light text-base mb-2">
-                    Head Involvement Interventions
-                  </h6>
-                  <ul class="pl-10 mb-4">
-                    <li class="list-disc">
-                      {selectedEvent.headInvolvementInterventions}
-                    </li>
-                  </ul>
-                {/if}
-                {#if selectedEvent.anticoagulationSelected && selectedEvent.anticoagulationInterventions}
-                  <h6 class="font-light text-base mb-2">
-                    Interventions due to Anticoagulation Therapy
-                  </h6>
-                  <ul class="pl-10 mb-4">
-                    <li class="list-disc">
-                      {selectedEvent.anticoagulationInterventions}
-                    </li>
-                  </ul>
-                  <br />
-                {/if}
-                <h5 class="text-lg font-light">Polypharmacy</h5>
-                <ul class="pl-10 mb-4">
-                  {#if selectedEvent.residentObj.polypharm.Antihypertensive}
-                    <li class="list-disc mt-3">
-                      <b>Current Antihypertensives: </b>{selectedEvent
-                        .residentObj.polypharm.Antihypertensive}
-                    </li>
-                    <li class="mt-2 ml-3">
-                      Physician Recommendation:
-                      __________________________________________
-                    </li>
-                    <li class="ml-3 mt-2">
-                      ___________________________________________________________________
-                    </li>
-                  {/if}
-                  {#if selectedEvent.residentObj.polypharm.Diabetes}
-                    <li class="list-disc mt-3">
-                      <b>Current Diabetes Medications: </b>{selectedEvent
-                        .residentObj.polypharm.Diabetes}
-                    </li>
-                    <li class="mt-2 ml-3">
-                      Physician Recommendation:
-                      __________________________________________
-                    </li>
-                    <li class="ml-3 mt-2">
-                      ___________________________________________________________________
-                    </li>
-                  {/if}
-                  {#if selectedEvent.residentObj.polypharm.Antidepressant}
-                    <li class="list-disc mt-3">
-                      <b>Current Antidepressants: </b>{selectedEvent.residentObj
-                        .polypharm.Antidepressant}
-                    </li>
-                    <li class="mt-2 ml-3">
-                      Physician Recommendation:
-                      __________________________________________
-                    </li>
-                    <li class="ml-3 mt-2">
-                      ___________________________________________________________________
-                    </li>
-                  {/if}
-                  {#if selectedEvent.residentObj.polypharm.Antipsychotic}
-                    <li class="list-disc mt-3">
-                      <b>Current Antipsychotics: </b>{selectedEvent.residentObj
-                        .polypharm.Antipsychotic}
-                    </li>
-                    <li class="mt-2 ml-3">
-                      Physician Recommendation:
-                      __________________________________________
-                    </li>
-                    <li class="ml-3 mt-2">
-                      ___________________________________________________________________
-                    </li>
-                  {/if}
-                  {#if selectedEvent.residentObj.polypharm.Pain}
-                    <li class="list-disc mt-3">
-                      <b>Current Pain Medications: </b>{selectedEvent
-                        .residentObj.polypharm.Pain}
-                    </li>
-                    <li class="mt-2 ml-3">
-                      Physician Recommendation:
-                      __________________________________________
-                    </li>
-                    <li class="ml-3 mt-2">
-                      ___________________________________________________________________
-                    </li>
-                  {/if}
-                  {#if selectedEvent.residentObj.polypharm.Supplement}
-                    <li class="list-disc mt-3">
-                      <b>Current Vitamins & Supplements: </b>{selectedEvent
-                        .residentObj.polypharm.Supplement}
-                    </li>
-                    <li class="mt-2 ml-3">
-                      Physician Recommendation:
-                      __________________________________________
-                    </li>
-                    <li class="ml-3 mt-2">
-                      ___________________________________________________________________
-                    </li>
-                  {/if}
-                </ul>
-                <br />
-                {#if selectedEvent.responsibleParty || selectedEvent.primaryPhysician}
-                  <h5 class="text-lg font-light">Notified:</h5>
-                  <ul class="pl-10 mb-4">
-                    {#if selectedEvent.responsibleParty}
-                      <li class="list-disc">
-                        Responsible Party{#if selectedEvent.responsiblePartyName}:
-                          {selectedEvent.responsiblePartyName}{/if}
-
-                        {#if selectedEvent.responsiblePartyDate}
-                          on {moment(selectedEvent.responsiblePartyDate)
-                            .local()
-                            .format("ddd, MMM DD, YYYY  HH:mm:ss")}{/if}
-                      </li>
-                    {/if}
-                    {#if selectedEvent.primaryPhysician}
-                      <li class="list-disc">
-                        Primary Physician: {selectedEvent.physicianName}
-                        {#if selectedEvent.notificationDate}
-                          on {moment(selectedEvent.notificationDate)
-                            .local()
-                            .format("ddd, MMM DD, YYYY  HH:mm:ss")}{/if}
-                      </li>
-                    {/if}
-                  </ul>
-                  <br /><br />
-                {/if}
-              </AspireNurseNote>
-            </AspireCard>
-          </aside>
           <AspireRow className="justify-between max-w-[1000px]">
             <AspireCard size="md:w-[48%]">
               <AspireHeader label={"Nurse's Note - Controls"} />
@@ -797,11 +397,7 @@
                     >"Lorem ipsum dolor sit amet, consectetur adipiscing elit,
                     sed do eiusmod tempor incididunt ut labore et dolore magna
                     aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-                    ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                    Duis aute irure dolor in reprehenderit in voluptate velit
-                    esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
-                    occaecat cupidatat non proident, sunt in culpa qui officia
-                    deserunt mollit anim id est laborum."</i
+                    ullamco laboris nisi ut aliquip ex ea commodo consequat."</i
                   >
                 </p>
                 <div class="ml-12 text-base">
@@ -967,8 +563,8 @@
                 question={"Is the resident currently receiving anticoagulation therapy?"}
                 input1={selectedEvent.anticoagulationObservations}
                 input2={selectedEvent.anticoagulationInterventions}
-                placeholder="Input 1"
-                placeholder2="Input 2"
+                placeholder="Symptoms & Observations"
+                placeholder2="Interventions"
                 label={"anticoagulation"}
                 bind:value={selectedEvent.anticoagulationSelected}
               />
@@ -1457,11 +1053,411 @@
             clickFn={submitButtonPush}
           ></AspireButton>
         </div> -->
+          <aside
+            class="flex
+              md:fixed
+              md:mr-5
+              md:top-[260px]
+              w-auto
+              md:max-w-[30%]
+              right-0"
+          >
+            <AspireCard asideCard>
+              <AspireNurseNote event="Falls" {selectedEvent} {submitButtonPush}>
+                <br />
+                {#if (selectedEvent.fallDetails && selectedEvent.fallDetails.ProviderVisitScheduled === "Yes") || providerScheduled}
+                  This resident has been scheduled with the medical director.
+                  <br /><br />
+                {/if}
+
+                <p class="mb-4">
+                  This writer was notified via {notifiedVia} that {selectedEvent
+                    ? selectedEvent.ResidentFirstName
+                    : ""}
+                  {selectedEvent ? selectedEvent.ResidentLastName : ""} (DOB: {selectedEvent
+                    ? selectedEvent.ResidentDOB
+                    : ""}) experienced a fall on {selectedEvent
+                    ? moment(selectedEvent.DateOfFall)
+                        .local()
+                        .format("ddd, MMM DD, YYYY")
+                    : ""} at {selectedEvent
+                    ? moment(selectedEvent.DateOfFall)
+                        .local()
+                        .format("HH:mm:ss")
+                    : ""}. {#if selectedEvent.emsSelected}EMS was notified on {selectedEvent.emsCalled}.
+                    {#if !selectedEvent.transportedEMS}Resident was not
+                      transported via EMS.{/if}
+                    {#if selectedEvent.transportedEMS}Resident was transported
+                      via EMS at {selectedEvent.transportedEMSNotes}.{/if}{/if}
+
+                  {#if selectedEvent.injurySelected}
+                    The resident did experience an injury. {#if selectedEvent.injuryObservations}{selectedEvent.injuryObservations.replace(
+                        /\.$/,
+                        ""
+                      )}.{/if}
+                    {#if selectedEvent.skinRelated}
+                      The resident has a skin integrity concern. {#if selectedEvent.skinObservations}{selectedEvent.skinObservations.replace(
+                          /\.$/,
+                          ""
+                        )}.{/if}
+                    {/if}
+                  {:else}
+                    The resident did not experience an injury.
+                  {/if}
+                  {#if selectedEvent.headInvolvementSelected}
+                    The resident did experience actual or suspected head
+                    involvement. {#if selectedEvent.headInvolvementObservations}{selectedEvent.headInvolvementObservations.replace(
+                        /\.$/,
+                        ""
+                      )}.{/if}
+                  {:else}
+                    The resident did not experience actual or suspected head
+                    involvement.
+                  {/if}
+                  {#if selectedEvent.anticoagulationSelected}
+                    The resident is receiving anticoagulation therapy {selectedEvent.anticoagulationObservations}.
+                  {/if}
+                  {#if selectedEvent.orthostaticLast14Days}
+                    The resident has had orthostatic blood pressure checks 1
+                    time per day for 3 days, including heart rate within the
+                    last 60 days.
+                    {#if selectedEvent.evidenceOfHypotension}
+                      Previously monitored orthostatic blood pressures indicated
+                      orthostatic hypotension: {selectedEvent.hypotensionDetails}.
+                      See the vital signs flow sheet for further information.
+                    {:else}
+                      The previously checked orthostatic pressures were WNL.
+                    {/if}
+                  {/if}
+                  {#if selectedEvent.fallDetails.Hypertension}
+                    The resident does have a diagnosis of hypertension.
+                  {:else}
+                    The resident does not have a diagnosis of hypertension.
+                  {/if}
+                  {#if selectedEvent.fallDetails.Arrhythmia}
+                    The resident does have a diagnosis of cardiac arrhythmia{#if selectedEvent.cardiacArrhythmiaNotes}:
+                      {selectedEvent.cardiacArrhythmiaNotes}.{:else}.{/if}
+                  {:else}
+                    The resident does not have a diagnosis of cardiac
+                    arrhythmia.
+                  {/if}
+                  {#if selectedEvent.ableToStand}
+                    The resident is able to stand with or without assistance.
+                  {:else}
+                    The resident is not able to stand with or without
+                    assistance. {#if selectedEvent.inabilityToStandNotes}{selectedEvent.inabilityToStandNotes}{/if}
+                  {/if}
+                  Vital signs are – T {selectedEvent.eventTemp || ""}, P {selectedEvent.eventPulse ||
+                    ""}, R {selectedEvent.eventRespiration || ""}, B/P {selectedEvent.eventBP ||
+                    ""}.
+                  {#if selectedEvent.MAHC10Score}
+                    {#if selectedEvent.MAHC10ScoreDate}
+                      Current MAHC 10 score is {selectedEvent.MAHC10Score} and was
+                      obtained on
+                      {selectedEvent.MAHC10ScoreDate}.
+                    {:else}
+                      Current MAHC 10 score is {selectedEvent.MAHC10Score}.
+                    {/if}{/if}
+                  {#if selectedEvent.SLUMSScore}
+                    {#if selectedEvent.SLUMSScoreDate}
+                      Current SLUMS/MMSE score is {selectedEvent.SLUMSScore} and
+                      was obtained on
+                      {selectedEvent.SLUMSScoreDate}.
+                    {:else}
+                      Current SLUMS/MMSE score is {selectedEvent.SLUMSScore}.
+                    {/if}{/if}
+                  {#if selectedEvent.activeInfection}
+                    The resident has an active infection: {selectedEvent.activeInfectionDetails ||
+                      ""}
+                  {/if}
+                  {#if selectedEvent.homeHealth}
+                    The resident is on home health services.
+                  {/if}
+                  {#if selectedEvent.hospice}
+                    The resident is on hospice services.
+                  {/if}
+                  {#if selectedEvent.outpatient}
+                    The resident is on outpatient services.
+                  {/if}
+                  <br />
+                </p>
+                {#if selectedEvent.includeFallSummary}
+                  <h6 class="font-light text-base mb-2">
+                    Fall Summary From RTasks:
+                  </h6>
+                  <ul class="pl-10 mb-4">
+                    <li>
+                      "{selectedEvent.fallDetails &&
+                      selectedEvent.fallDetails.Narrative
+                        ? selectedEvent.fallDetails.Narrative
+                        : ""}"
+                    </li>
+                    <li>
+                      Written By: {selectedEvent.fallDetails
+                        ? selectedEvent.fallDetails.PersonRecording == undefined
+                          ? "Unknown"
+                          : selectedEvent.fallDetails.PersonRecording
+                        : ""}
+                    </li>
+                    <li>
+                      Date: {selectedEvent.fallDetails
+                        ? moment(selectedEvent.fallDetails.DateOfRecording)
+                            .local()
+                            .format("ddd, MMM DD, YYYY")
+                        : ""}
+                    </li>
+                  </ul>
+                {/if}
+                {#if selectedEvent.increasedSusceptibility || selectedEvent.fallDetails.Arrhythmia || (selectedEvent.residentObj.medicalStatus && selectedEvent.fallDetails.OnAntihypertensives) || numFallInLast90Days > 0}
+                  <h6 class="font-light text-base mb-2">
+                    Increased Susceptibility to Falls:
+                  </h6>
+                  <ul class="pl-10 mb-4">
+                    {#if selectedEvent.increasedSusceptibility}
+                      <li>{selectedEvent.increasedSusceptibility}</li>
+                    {/if}
+                    {#if selectedEvent.residentObj.medicalStatus && selectedEvent.fallDetails.OnAntihypertensives}
+                      <li>
+                        This resident is taking one or more anti-hypertensive
+                        medications.
+                      </li>
+                    {/if}
+                    {#if selectedEvent.cardiacArrhythmia}
+                      <li>
+                        This resident has a diagnosis of cardiac arrhythmia.
+                      </li>
+                    {/if}
+                    {#if numFallInLast90Days > 0}
+                      <li>
+                        The resident has had {numFallInLast90Days} falls in the last
+                        90 days.
+                      </li>
+                    {/if}
+                    {#if selectedEvent.susceptibilityInterventions}
+                      <li>
+                        Interventions: {selectedEvent.susceptibilityInterventions}
+                      </li>
+                    {/if}
+                  </ul>
+                {/if}
+
+                {#if selectedEvent.additionalEventInfo}
+                  <h6 class="font-light text-base mb-2">
+                    Additonal Information:
+                  </h6>
+                  <p class="mb-4">
+                    {selectedEvent.additionalEventInfo}
+                    {#if selectedEvent.additionalInterventions}
+                      Interventions: {selectedEvent.additionalInterventions}
+                    {/if}
+                  </p>
+                {/if}
+                <h5 class="text-lg font-light">Actions Taken</h5>
+                <ul class="pl-10 mb-4">
+                  <li class="list-disc">
+                    Will complete focused assessment and upgrade the plan of
+                    care as appropriate
+                  </li>
+                  {#if selectedEvent.placedProvider}<li>
+                      Outside services have been notified of event.
+                    </li>{/if}
+                  {#if numFallInLast90Days >= 3}
+                    {#if selectedEvent.placedFallReduction}
+                      <li class="list-disc">
+                        The resident is on a Fall Reduction Protocol. Will
+                        review interventions and modify if necessary.
+                      </li>
+                    {:else}
+                      <li class="list-disc">
+                        The resident has been placed on the Fall Reduction
+                        Protocol with individualized interventions.
+                      </li>
+                    {/if}
+                  {:else if numFallInLast90Days < 3}
+                    <li class="list-disc">
+                      Will update the plan of care with interventions to
+                      minimize falls.
+                    </li>
+                  {/if}
+                  {#if selectedEvent.skinSeverity == "moderate" || selectedEvent.skinSeverity == "significant"}
+                    <li class="list-disc" />
+                    <li class="list-disc">
+                      The resident has been placed on the Skin Protocol. A
+                      licensed nurse will evaluate the wound weekly until
+                      resolved.
+                    </li>{/if}
+                  {#if selectedEvent.protocolsEntered}<li>
+                      The protocols have been entered on the residents Service
+                      Plan.
+                    </li>{/if}
+                  {#if selectedEvent.skinRelated}
+                    {#if selectedEvent.skinSeverity === "mild"}
+                      <li class="list-disc">
+                        Licensed Nurse will monitor until skin integrity issue
+                        is resolved
+                      </li>{/if}
+                    {#if selectedEvent.skinSeverity === "moderate" || selectedEvent.skinSeverity === "significant"}
+                      <li class="list-disc">
+                        Licensed Nurse will monitor weekly until skin integrity
+                        issue is resolved
+                      </li>{/if}
+                  {/if}
+                </ul>
+                {#if selectedEvent.injurySelected && selectedEvent.injuryInterventions}
+                  <h6 class="font-light text-base mb-2">
+                    Injury Interventions
+                  </h6>
+                  <ul class="pl-10 mb-4">
+                    <li class="list-disc">
+                      {selectedEvent.injuryInterventions}
+                    </li>
+                  </ul>
+                {/if}
+                {#if selectedEvent.injurySelected && selectedEvent.skinInterventions}
+                  <h6 class="font-light text-base mb-2">Skin Interventions</h6>
+                  <ul class="pl-10 mb-4">
+                    <li class="list-disc">
+                      {selectedEvent.skinInterventions}
+                    </li>
+                  </ul>
+                {/if}
+                {#if selectedEvent.headInvolvementSelected && selectedEvent.headInvolvementInterventions}
+                  <h6 class="font-light text-base mb-2">
+                    Head Involvement Interventions
+                  </h6>
+                  <ul class="pl-10 mb-4">
+                    <li class="list-disc">
+                      {selectedEvent.headInvolvementInterventions}
+                    </li>
+                  </ul>
+                {/if}
+                {#if selectedEvent.anticoagulationSelected && selectedEvent.anticoagulationInterventions}
+                  <h6 class="font-light text-base mb-2">
+                    Interventions due to Anticoagulation Therapy
+                  </h6>
+                  <ul class="pl-10 mb-4">
+                    <li class="list-disc">
+                      {selectedEvent.anticoagulationInterventions}
+                    </li>
+                  </ul>
+                  <br />
+                {/if}
+                <h5 class="text-lg font-light">Polypharmacy</h5>
+                <ul class="pl-10 mb-4">
+                  {#if selectedEvent.residentObj.polypharm.Antihypertensive}
+                    <li class="list-disc mt-3">
+                      <b>Current Antihypertensives: </b>{selectedEvent
+                        .residentObj.polypharm.Antihypertensive}
+                    </li>
+                    <li class="mt-2 ml-3">
+                      Physician Recommendation:
+                      __________________________________________
+                    </li>
+                    <li class="ml-3 mt-2">
+                      ___________________________________________________________________
+                    </li>
+                  {/if}
+                  {#if selectedEvent.residentObj.polypharm.Diabetes}
+                    <li class="list-disc mt-3">
+                      <b>Current Diabetes Medications: </b>{selectedEvent
+                        .residentObj.polypharm.Diabetes}
+                    </li>
+                    <li class="mt-2 ml-3">
+                      Physician Recommendation:
+                      __________________________________________
+                    </li>
+                    <li class="ml-3 mt-2">
+                      ___________________________________________________________________
+                    </li>
+                  {/if}
+                  {#if selectedEvent.residentObj.polypharm.Antidepressant}
+                    <li class="list-disc mt-3">
+                      <b>Current Antidepressants: </b>{selectedEvent.residentObj
+                        .polypharm.Antidepressant}
+                    </li>
+                    <li class="mt-2 ml-3">
+                      Physician Recommendation:
+                      __________________________________________
+                    </li>
+                    <li class="ml-3 mt-2">
+                      ___________________________________________________________________
+                    </li>
+                  {/if}
+                  {#if selectedEvent.residentObj.polypharm.Antipsychotic}
+                    <li class="list-disc mt-3">
+                      <b>Current Antipsychotics: </b>{selectedEvent.residentObj
+                        .polypharm.Antipsychotic}
+                    </li>
+                    <li class="mt-2 ml-3">
+                      Physician Recommendation:
+                      __________________________________________
+                    </li>
+                    <li class="ml-3 mt-2">
+                      ___________________________________________________________________
+                    </li>
+                  {/if}
+                  {#if selectedEvent.residentObj.polypharm.Pain}
+                    <li class="list-disc mt-3">
+                      <b>Current Pain Medications: </b>{selectedEvent
+                        .residentObj.polypharm.Pain}
+                    </li>
+                    <li class="mt-2 ml-3">
+                      Physician Recommendation:
+                      __________________________________________
+                    </li>
+                    <li class="ml-3 mt-2">
+                      ___________________________________________________________________
+                    </li>
+                  {/if}
+                  {#if selectedEvent.residentObj.polypharm.Supplement}
+                    <li class="list-disc mt-3">
+                      <b>Current Vitamins & Supplements: </b>{selectedEvent
+                        .residentObj.polypharm.Supplement}
+                    </li>
+                    <li class="mt-2 ml-3">
+                      Physician Recommendation:
+                      __________________________________________
+                    </li>
+                    <li class="ml-3 mt-2">
+                      ___________________________________________________________________
+                    </li>
+                  {/if}
+                </ul>
+                <br />
+                {#if selectedEvent.responsibleParty || selectedEvent.primaryPhysician}
+                  <h5 class="text-lg font-light">Notified:</h5>
+                  <ul class="pl-10 mb-4">
+                    {#if selectedEvent.responsibleParty}
+                      <li class="list-disc">
+                        Responsible Party{#if selectedEvent.responsiblePartyName}:
+                          {selectedEvent.responsiblePartyName}{/if}
+
+                        {#if selectedEvent.responsiblePartyDate}
+                          on {moment(selectedEvent.responsiblePartyDate)
+                            .local()
+                            .format("ddd, MMM DD, YYYY  HH:mm:ss")}{/if}
+                      </li>
+                    {/if}
+                    {#if selectedEvent.primaryPhysician}
+                      <li class="list-disc">
+                        Primary Physician: {selectedEvent.physicianName}
+                        {#if selectedEvent.notificationDate}
+                          on {moment(selectedEvent.notificationDate)
+                            .local()
+                            .format("ddd, MMM DD, YYYY  HH:mm:ss")}{/if}
+                      </li>
+                    {/if}
+                  </ul>
+                  <br /><br />
+                {/if}
+              </AspireNurseNote>
+            </AspireCard>
+          </aside>
         </fieldset>
-      </Drawer>
-    </div>
-  </AspireContainer>
-</form>
+      </div>
+    </AspireContainer>
+    </Drawer>
+  </form>
 
 <style>
   .d-flex {

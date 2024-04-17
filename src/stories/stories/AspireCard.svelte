@@ -17,7 +17,7 @@
         shadowl-xl
         p-4
         bg-white
-        max-h-[68vh]
+        max-h-[70vh]
         scroll
         overflow-y-auto
        !rounded-none"
