@@ -68,7 +68,7 @@
         src="https://th.bing.com/th/id/OIP.WV2__AG0EMxrBhZ0S8tH9AHaC9?rs=1&pid=ImgDetMain"
       />
     </a>
-    <div class="text-sm text-black breadcrumbs ml-12 !overflow-visible w-full">
+    <div class="text-sm text-black breadcrumbs ml-12 !overflow-visible w-full relative left-[130px]">
       <ul>
         <li>
           <div class="dropdown dropdown-hover">

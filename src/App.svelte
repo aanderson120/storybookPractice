@@ -15,6 +15,7 @@
   import AspireDateTimePicker from "./stories/stories/AspireDateTimePicker.svelte";
   import AspireTextArea from "./stories/stories/AspireTextArea.svelte";
   import AspireButton from "./stories/stories/AspireButton.svelte";
+  import AspireSideNav from "./stories/stories/AspireSideNav.svelte";
 
   let allCustomers = [{ displayVal: "Diamond" }, { displayVal: "Edgewood" }];
   let allCampuses = [
@@ -221,10 +222,11 @@
   bind:selectedCampus
   bind:selectedEvent
 />
-  <!-- svelte-ignore a11y-no-noninteractive-element-interactions -->
-  <form class="sm:!pl-64 mr-14 m:mr-0" id="falls-form">
-    <Drawer bind:residentObj={selectedEvent.residentObj}>
-      <AspireContainer className="mb-4">
+<AspireSideNav />
+<!-- svelte-ignore a11y-no-noninteractive-element-interactions -->
+<form class="sm:!pl-64 mr-14 m:mr-0" id="falls-form">
+  <Drawer bind:residentObj={selectedEvent.residentObj}>
+    <AspireContainer className="mb-4">
       <div class="w-full">
         <fieldset class="md:mr-[366px]">
           <AspireRow className="justify-between max-w-[1000px]">
@@ -346,7 +348,6 @@
                     </div>
                   {/if}
                 </div>
-                <br />
 
                 <!-- Experienced additional injury? -->
                 <AspireFormQuestion
@@ -1456,8 +1457,8 @@
         </fieldset>
       </div>
     </AspireContainer>
-    </Drawer>
-  </form>
+  </Drawer>
+</form>
 
 <style>
   .d-flex {
