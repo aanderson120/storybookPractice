@@ -1,21 +1,19 @@
 <script>
   import moment from "moment";
-  import AspireContainer from "./stories/stories/AspireContainer.svelte";
-  import TopNav from "./stories/stories/TopNav.svelte";
-  import Drawer from "./stories/stories/Drawer.svelte";
-  import AspireCard from "./stories/stories/AspireCard.svelte";
-  import AspireNurseNote from "./stories/stories/AspireNurseNote.svelte";
+  import AspireContainer from "./stories/stories/general/AspireContainer.svelte";
+  import TopNav from "./stories/stories/layout/TopNav.svelte";
+  import AspireSideNav from "./stories/stories/layout/SideNav/AspireSideNav.svelte";
+  import Drawer from "./stories/stories/layout/Drawer.svelte";
   import AspireRow from "./stories/stories/AspireRow.svelte";
-  import AspireHeader from "./stories/stories/AspireHeader.svelte";
-  import AspireLocalSave from "./stories/stories/AspireLocalSave.svelte";
-  import AspireFormQuestion from "./stories/stories/AspireFormQuestion.svelte";
-  import AspireTextInput from "./stories/stories/AspireTextInput.svelte";
-  import AspireDatePicker from "./stories/stories/AspireDatePicker.svelte";
-  import AspireCheckbox from "./stories/stories/AspireCheckbox.svelte";
-  import AspireDateTimePicker from "./stories/stories/AspireDateTimePicker.svelte";
-  import AspireTextArea from "./stories/stories/AspireTextArea.svelte";
-  import AspireButton from "./stories/stories/AspireButton.svelte";
-  import AspireSideNav from "./stories/stories/AspireSideNav.svelte";
+  import AspireCard from "./stories/stories/general/AspireCard.svelte";
+  import AspireHeader from "./stories/stories/general/AspireHeader.svelte";
+  import AspireFormQuestion from "./stories/stories/event/AspireFormQuestion.svelte";
+  import AspireLocalSave from "./stories/stories/event/AspireLocalSave.svelte";
+  import AspireTextInput from "./stories/stories/general/AspireTextInput.svelte";
+  import AspireCheckbox from "./stories/stories/general/AspireCheckbox.svelte";
+  import AspireDateTimePicker from "./stories/stories/general/AspireDateTimePicker.svelte";
+  import AspireTextArea from "./stories/stories/general/AspireTextArea.svelte";
+  import AspireNurseNote from "./stories/stories/event/AspireNurseNote.svelte";
 
   let allCustomers = [{ displayVal: "Diamond" }, { displayVal: "Edgewood" }];
   let allCampuses = [

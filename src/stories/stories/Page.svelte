@@ -1,12 +1,12 @@
 <script lang="ts">
+  import AspireHeader from './general/AspireHeader.svelte';
   import './page.css';
-  import Header from './AspireHeader.svelte';
 
   let user: { name: string } | null = null;
 </script>
 
 <article>
-  <Header
+  <AspireHeader
     {user}
     on:login={() => (user = { name: 'Jane Doe' })}
     on:logout={() => (user = null)}

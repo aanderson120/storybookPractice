@@ -3,8 +3,8 @@
   //Layout for Nurse's Note
   import moment from "moment";
 
-  import AspireHeader from "./AspireHeader.svelte";
-  import AspireButton from "./AspireButton.svelte";
+  import AspireHeader from "../general/AspireHeader.svelte";
+  import AspireButton from "../general/AspireButton.svelte";
 
   export let selectedEvent = {};
   export let submitButtonPush = () => {};

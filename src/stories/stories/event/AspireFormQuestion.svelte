@@ -1,11 +1,11 @@
 <script>
-  import AspireDateTimePicker from "./AspireDateTimePicker.svelte";
   //AspireFormQuestion.svelte
   //Reusable component for form questions
 
-  import AspireEmailInput from "./AspireEmailInput.svelte";
-  import AspireTextInput from "./AspireTextInput.svelte";
-  import AspireDatePicker from "./AspireDatePicker.svelte";
+  import AspireEmailInput from "../general/AspireEmailInput.svelte";
+  import AspireTextInput from "../general/AspireTextInput.svelte";
+  import AspireDatePicker from "../general/AspireDatePicker.svelte";
+  import AspireDateTimePicker from "../general/AspireDateTimePicker.svelte";
 
   export let question = "";
   export let placeholder = "";

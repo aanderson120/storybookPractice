@@ -1,8 +1,10 @@
 <script>
   // AspireResidentCommonInfo.svelte
   // Element for displaying the commonly used resident information
-  import AspireCollapsibleSection from "./AspireCollapsibleSection.svelte";
+
   //   import AspireInputTable from "./AspireInputTable.svelte";
+  import AspireCollapsibleSection from "../general/AspireCollapsibleSection.svelte";
+
   export let residentObj = {
     BradenScore: "",
     CampusId: "",

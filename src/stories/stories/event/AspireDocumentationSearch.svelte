@@ -1,12 +1,12 @@
 <script>
   //AspireDocumentation.svelte
   //Component to search residents in event documentation
-  import AspireHeader from "./AspireHeader.svelte";
-  import AspireButton from "./AspireButton.svelte";
-  import AspireDisplayInputItems from "./AspireDisplayInputItems.svelte";
-  import AspireDatePicker from "./AspireDatePicker.svelte";
-  import AspireTextInput from "./AspireTextInput.svelte";
-  import AspireCard from "./AspireCard.svelte";
+  import AspireHeader from "../general/AspireHeader.svelte";
+  import AspireButton from "../general/AspireButton.svelte";
+  import AspireDisplayInputItems from "../general/AspireDisplayInputItems.svelte";
+  import AspireDatePicker from "../general/AspireDatePicker.svelte";
+  import AspireTextInput from "../general/AspireTextInput.svelte";
+  import AspireCard from "../general/AspireCard.svelte";
 
   export let eventType = "";
   export let startDate = "";

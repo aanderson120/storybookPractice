@@ -2,8 +2,8 @@
   //Drawer.svelte
   //Reusable component for a drawer
 
-  import AspireCard from "./AspireCard.svelte";
-  import AspireResidentCommonInfo from "./AspireResidentCommonInfo.svelte";
+  import AspireCard from "../general/AspireCard.svelte";
+  import AspireResidentCommonInfo from "../event/AspireResidentCommonInfo.svelte";
 
   export let residentObj = {
     BradenScore: "",

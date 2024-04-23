@@ -35,7 +35,7 @@
     UnitNumber: "",
   };
   import AspireResidentCommonInfo from "./AspireResidentCommonInfo.svelte";
-  import AspireCollapsibleSection from "./AspireCollapsibleSection.svelte";
+  import AspireCollapsibleSection from "../general/AspireCollapsibleSection.svelte";
 </script>
 
 <AspireCollapsibleSection label="Resident Details">

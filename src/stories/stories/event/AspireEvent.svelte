@@ -6,15 +6,15 @@
 
   import AspireEventSelect from "./AspireEventSelect.svelte";
   import AspireFatalErrorCard from "./AspireFatalErrorCard.svelte";
-  import AspireHeader from "./AspireHeader.svelte";
+  import AspireHeader from "../general/AspireHeader.svelte";
   import AspireNoEventCard from "./AspireNoEventCard.svelte";
-  import AspireRow from "./AspireRow.svelte";
+  import AspireRow from "../AspireRow.svelte";
   import AspireResidentBox from "./AspireResidentBox.svelte";
-  import AspireButton from "./AspireButton.svelte";
-  import AspireCard from "./AspireCard.svelte";
+  import AspireButton from "../general/AspireButton.svelte";
+  import AspireCard from "../general/AspireCard.svelte";
   import AspireNurseNote from "./AspireNurseNote.svelte";
-  import TopNav from "./TopNav.svelte";
-  import Drawer from "./Drawer.svelte";
+  import TopNav from "../layout/TopNav.svelte";
+  import Drawer from "../layout/Drawer.svelte";
   import AspireLocalSave from "./AspireLocalSave.svelte";
 
   export let allCustomers = [{ displayVal: "" }];

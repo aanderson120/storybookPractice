@@ -3,7 +3,7 @@
   //Top navigation bar component
   import { createEventDispatcher } from "svelte";
 
-  import AspireButton from "./AspireButton.svelte";
+  import AspireButton from "../general/AspireButton.svelte";
 
   export let allCustomers = [{ displayVal: "" }];
   export let allCampuses = [{ displayVal: "" }];

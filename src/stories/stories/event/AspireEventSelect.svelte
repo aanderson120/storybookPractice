@@ -4,7 +4,8 @@
 
   import moment from "moment";
   import { createEventDispatcher } from "svelte";
-  import AspireHeader from "./AspireHeader.svelte";
+  
+  import AspireHeader from "../general/AspireHeader.svelte";
 
   const dispatch = createEventDispatcher();
 

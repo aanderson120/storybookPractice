@@ -1,10 +1,10 @@
 <script>
   // AspireCollapsible.svelte
   // A box that can be collapsed/expanded, using our standard icons.
-  // import MDBIcon from "mdbsvelte/src/MDBIcon.svelte";
 
-  import Row from "./AspireRow.svelte";
-  import Column from "./AspireColumn.svelte";
+  import AspireColumn from "../AspireColumn.svelte";
+  import AspireRow from "../AspireRow.svelte";
+  // import MDBIcon from "mdbsvelte/src/MDBIcon.svelte";
 
   // Expanded state can be set on input and maintained by binding this variable.
   export let expanded = false;
@@ -21,13 +21,16 @@
 </script>
 
 <div title={hoverText}>
-  <Row
+  <AspireRow
     className=" rounded-xl w-full text-center text-lg bg-[#223FAB] text-white p-2"
   >
-    <Column size="10" margin1="" className={headerClass + " flex-1 md:flex-1"}
+    <AspireColumn
+      size="10"
+      margin1=""
+      className={headerClass + " flex-1 md:flex-1"}
       ><span class="px-4" style="text-wrap: nowrap;">{label}</span>
-    </Column>
-    <Column size="2">
+    </AspireColumn>
+    <AspireColumn size="2">
       <!-- Clicking toggles the status of "expanded"-->
       <button
         class="focus:outline-none float-right"
@@ -47,8 +50,8 @@
           {/if}
         </a></button
       >
-    </Column>
-  </Row>
+    </AspireColumn>
+  </AspireRow>
 
   <div class="collapsible my-2">
     <div class={display}>

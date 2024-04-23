@@ -3,9 +3,9 @@
   //Component to display the event report in documentation
   import moment from "moment";
 
-  import AspireCard from "./AspireCard.svelte";
-  import AspireHeader from "./AspireHeader.svelte";
-  import AspireButton from "./AspireButton.svelte";
+  import AspireCard from "../general/AspireCard.svelte";
+  import AspireHeader from "../general/AspireHeader.svelte";
+  import AspireButton from "../general/AspireButton.svelte";
 
   export let eventType = "Fall" || "Fall with Director Review";
   export let printArea = "";

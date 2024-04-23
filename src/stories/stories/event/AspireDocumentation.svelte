@@ -1,12 +1,13 @@
 <script>
-  import Container from "./AspireContainer.svelte";
-  import Row from "./AspireRow.svelte";
-  import Col from "./AspireColumn.svelte";
-  import AspireButton from "./AspireButton.svelte";
+  import AspireDocumentationReport from "./AspireDocumentationReport.svelte";
   import AspireFatalErrorCard from "./AspireFatalErrorCard.svelte";
   import AspireDocumentationSearch from "./AspireDocumentationSearch.svelte";
-  import AspireCard from "./AspireCard.svelte";
-  import AspireDocumentationReport from "./AspireDocumentationReport.svelte";
+  import AspireRow from "../AspireRow.svelte";
+  import AspireColumn from "../AspireColumn.svelte";
+  import AspireContainer from "../general/AspireContainer.svelte";
+  import AspireButton from "../general/AspireButton.svelte";
+
+  import AspireCard from "../general/AspireCard.svelte";
 
   export let startDate = "";
   export let endDate = "";
@@ -61,9 +62,9 @@
   <!-- {#if $thisSession && $thisSession.fatalErrorOnPage}
     <AspireFatalErrorCard ErrMsg$FatalErrorOnPage="Fatal Error on Page" />
   {:else if $thisSession && $thisSession.selectedCampusObj && allEvents && allEvents.objList} -->
-  <Container>
-    <Row className="event-container">
-      <Col size="12">
+  <AspireContainer>
+    <AspireRow className="event-container">
+      <AspireColumn size="12">
         <fieldset>
           <AspireDocumentationSearch
             {eventType}
@@ -80,10 +81,10 @@
             {atceventopenevents}
           />
         </fieldset>
-      </Col>
-    </Row>
+      </AspireColumn>
+    </AspireRow>
     <AspireButton label="Print All" clickFn={printSection}></AspireButton>
-  </Container>
+  </AspireContainer>
   <!-- {/if} -->
 </form>
 
