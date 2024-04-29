@@ -16,9 +16,8 @@
       class="card
         shadowl-xl
         p-4
+        mb-2
         bg-white
-        max-h-[70vh]
-        scroll
         overflow-y-auto
        !rounded-none"
     >

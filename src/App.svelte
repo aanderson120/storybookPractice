@@ -160,6 +160,8 @@
       MAHC10ScoreDate: "",
       SLUMSScore: "",
       SLUMSScoreDate: "",
+      Diagram:
+        "https://aspireci.file.core.windows.net/images/eventimages/949b43ce-004a-11ef-9797-0242ac120002body-diagram.jpg",
     },
     eventTemp: "",
     eventPulse: "",
@@ -383,10 +385,9 @@
                   bind:transportedEMS={selectedEvent.transportedEMS}
                   bind:transportedEMSNotes={selectedEvent.transportedEMSNotes}
                 />
-
-                <AspireLocalSave {selectedEvent} />
-              </div></AspireCard
-            >
+              </div>
+              <AspireLocalSave {selectedEvent} />
+            </AspireCard>
 
             <AspireCard size="md:w-[48%]">
               <AspireHeader label={"Fall Summary From RTasks"} />
@@ -419,7 +420,6 @@
                 value="selectedEvent.includeFallSummary"
                 label="includeFallSummary"
               />
-
               <br />
               <AspireHeader label={"Evaluation Vital Signs"} />
               <div class="form-row">
@@ -1059,8 +1059,31 @@
               md:top-[260px]
               w-auto
               md:max-w-[30%]
-              right-0"
+              right-0
+              max-h-[70vh]
+              scroll"
+            style="flex-flow: column;"
           >
+            {#if selectedEvent.fallDetails.Diagram && selectedEvent.fallDetails.Diagram !== "*Not provided*" && selectedEvent.fallDetails.Diagram !== "https://aspireci.file.core.windows.net/images/default.png"}
+              <AspireCard asideCard>
+                <center>
+                  <h3 class="text-lg">
+                    <u>Fall Diagram</u>
+                  </h3>
+                  <br />
+                  <img
+                    class="img-fluid residentimage"
+                    src={selectedEvent.fallDetails &&
+                    selectedEvent.fallDetails.Diagram
+                      ? `${selectedEvent.fallDetails.Diagram}?sv=2020-08-04&ss=f&srt=o&sp=rl&se=2024-07-20T20:39:41Z&st=2021-07-20T12:39:41Z&spr=https&sig=u7BZzUmu2trUho9Fl2QVzUAiRewD5UFyOIZCJru74lA%3D`
+                      : ""}
+                    style="width: 50%;"
+                    alt="Diagram"
+                  />
+                </center>
+              </AspireCard>
+            {/if}
+
             <AspireCard asideCard>
               <AspireNurseNote event="Falls" {selectedEvent} {submitButtonPush}>
                 <br />
